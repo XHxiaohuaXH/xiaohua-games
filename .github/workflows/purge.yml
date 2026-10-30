@@ -1,0 +1,21 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'xiaohuagames.json'
+  workflow_dispatch:   # 允许手动点击触发
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache
+        run: |
+          echo "正在清除 jsDelivr 缓存..."
+          curl -sS "https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json" \
+            -o /tmp/purge_result.json \
+            -w "HTTP 状态码: %{http_code}\n"
+          echo "返回内容："
+          cat /tmp/purge_result.json || true
