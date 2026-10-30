@@ -6,7 +6,9 @@
         "url_baidu": "https://pan.baidu.com/s/1jgN5KvRvWvFqViAuzkh4tA?pwd=cuts",
         "preview": "https://pan.baidu.com/s/1RFqd1PTLyu19-Wya6fElVQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968076699",
-        "stars": "★★★★★★"
+        "stars": "★★★★★★",
+        "is_update": true,
+        "update_url": "baidu.com"
     },
     {
         "name": "AI少女-56G",
