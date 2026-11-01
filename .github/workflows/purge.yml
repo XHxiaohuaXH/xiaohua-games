@@ -5,17 +5,27 @@ on:
     branches: [main]
     paths:
       - 'xiaohuagames.json'
-  workflow_dispatch:   # 允许手动点击触发
+  workflow_dispatch:  # 允许手动点击触发
 
 jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
-      - name: Purge jsDelivr cache
+      - name: Purge cdn.jsdelivr.net (主节点)
         run: |
-          echo "正在清除 jsDelivr 缓存..."
+          echo "正在清理主节点缓存..."
           curl -sS "https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json" \
-            -o /tmp/purge_result.json \
+            -o /tmp/purge_result_main.json \
             -w "HTTP 状态码: %{http_code}\n"
-          echo "返回内容："
-          cat /tmp/purge_result.json || true
+          echo "返回内容: "
+          cat /tmp/purge_result_main.json || true
+
+      - name: Purge gcore.jsdelivr.net (备用节点)
+        run: |
+          echo "正在清理备用节点缓存..."
+          # 注意：给备用节点加上了 ?purge=true 参数，强制其清理
+          curl -sS "https://gcore.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json?purge=true" \
+            -o /tmp/purge_result_gcore.json \
+            -w "HTTP 状态码: %{http_code}\n"
+          echo "返回内容: "
+          cat /tmp/purge_result_gcore.json || true
