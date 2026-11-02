@@ -1,4 +1,4 @@
-name: Purge CDN Cache
+name: Purge jsDelivr Cache
 
 on:
   push:
@@ -11,16 +11,8 @@ jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
-      - name: 清理 jsDelivr 缓存 (主节点 + 备用节点)
-        run: |
-          echo "正在请求清理 jsDelivr 缓存..."
-          # jsDelivr 官方统一的清理接口，清理 @main 分支下的这个文件
-          curl -sS "https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json" \
-            -w "\nHTTP 状态码: %{http_code}\n"
-
-      - name: 清理 gcore 备用节点缓存
-        run: |
-          echo "正在请求清理 gcore 缓存..."
-          # 对 gcore 必须使用它专属的 purge 域名 (官方文档要求)
-          curl -sS "https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json" \
-            -w "\nHTTP 状态码: %{http_code}\n"
+      - name: 触发 jsDelivr 缓存刷新
+        uses: gacts/purge-jsdelivr-cache@v1
+        with:
+          url: |
+            https://cdn.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json
