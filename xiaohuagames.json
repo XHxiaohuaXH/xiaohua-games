@@ -1,5 +1,20 @@
- [
-    {
+{
+    "customerService": [
+        {
+            "name": "【QQ客服 1】",
+            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=IuE1FsiTFmJo284byV8bY_ru_xo-5uE7&authKey=dU1nqPgqNcrH5caevdqfy2j6kjN88g%2BWWXR9D8CGziKhNuDJalIGP5sdovjJQPV1&noverify=0&group_code=1128196452"
+        },
+        {
+            "name": "【QQ客服 2】",
+            "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Cb9bDVCQcmq5_N4IEoUv92TgVAv8lTrd&authKey=1VF37duVkCkBF5iIfrpO%2Fhxb%2Bmk59k9dMLNaIxIELmdBOHSijKsFr95yO3kjNnnY&noverify=0&group_code=1128329427"
+        },
+        {
+            "name": "备用客服",
+            "url": "https://docs.qq.com/doc/DU3lxQ2F6RERqemVQ"
+        }
+    ],
+    "games": [
+        {
         "name": "永久会员（今后新增游戏全免费）",
         "size": "目前275款", 
         "url_cloud": "https://caiyun.139.com/w/i/2yA8A3WNA3Gku",
@@ -2923,5 +2938,6 @@
         "preview": "https://pan.baidu.com/s/19XZyofRIgY481QsgSRY1pA?pwd=8888",
         "url_unzip": "https://docs.qq.com/doc/DU0tzUmdSZnRFVGts",
         "stars": "★★★"
-    }
-]
+        }
+    ]
+}
