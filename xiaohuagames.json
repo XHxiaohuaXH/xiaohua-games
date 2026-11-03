@@ -7,10 +7,6 @@
         {
             "name": "【QQ客服 2】",
             "url": "http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Cb9bDVCQcmq5_N4IEoUv92TgVAv8lTrd&authKey=1VF37duVkCkBF5iIfrpO%2Fhxb%2Bmk59k9dMLNaIxIELmdBOHSijKsFr95yO3kjNnnY&noverify=0&group_code=1128329427"
-        },
-        {
-            "name": "备用客服",
-            "url": "https://docs.qq.com/doc/DU3lxQ2F6RERqemVQ"
         }
     ],
     "games": [
@@ -94,6 +90,7 @@
         "url_unzip": "https://www.juhedu.top/i/1968969112",
         "date": "2026-9-19",
         "update_date": "2026-9-27",
+        "update_content": "本次更新内容：\n1. 添加了一些汉化\n2. 添加了男女解码\n3. 添加了修改器（F12呼出）\n4. 更新了防止联网插件\n5. 修改了一些图片\n6. 添加了2000张人物卡\n7. 修复了男角色牛牛伸缩的问题",
         "stars": "★★★★★★"
 
     },
@@ -870,6 +867,7 @@
         "preview": "https://pan.baidu.com/s/1sTyIo-RnL30ZxC0GFhvFkw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968798688",
         "update_date": "2026-9-13",
+        "update_content": "本次更新内容：\n修复了3P约会中1P/2P切换按钮的异常问题。\n修复了部分姿势的动作异常与穿模问题。\n修复了部分机翻多语言文本错误。",
         "stars": "★★★"
     },
     {
@@ -1512,6 +1510,7 @@
         "preview": "https://pan.baidu.com/s/1UOPM7k5iylFCV1Bs5-KZbQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968985703",
         "update_date": "2026-9-6",
+        "update_content": "本次更新内容：\n真结局 2 小时解锁功能：除了专辑之外，此功能现在还会解锁后续故事并开启所有腐化进程事件。\n解决了专辑中温泉的动画CG会消失的问题。\n修復首页显示的存档与游戏中存档介面的存档不一致的问题。",
         "stars": "★★★★"
     },
     {
@@ -2100,6 +2099,7 @@
         "preview": "https://pan.baidu.com/s/1y3Hnwi1Lhv3L6X__D0xoAw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968708078",
         "update_date": "2026-9-3",
+        "update_content": "本次更新内容：\n(1)更多日常事件\n下雨天的时候或许会遇上特殊事件唷！\n(2)海水浴场事件\n追加海滩事件，小莉子他们将换上泳装与你在海边同乐！\n(3)新衣装事件\n每位女角追加新衣服，敬请体验不同的爱爱情境！\n(4)多人梦境事件\n只要向神社许愿，或许就能梦到不得了的梦境？",
         "stars": "★★★★★"
     },
     {
@@ -2646,6 +2646,7 @@
         "preview": "https://pan.baidu.com/s/1AVJP9IRqe6rH0IcZrqQ1og?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968626461",
         "update_date": "2026-9-3",
+        "update_content": "本次更新内容：\n· 新机制：增加新的料理物理机制，更改料理操作模式与倒食材视角\n· 模型与场景修正：修正场景光影效果，修正NPC角色模型、贴图、动作\n· NPC交互修复：修正NPC日常对话整段重复的错误，修正更换服装时的材质错误\n· 角色模型修复：修正薇菈、娜娜、艾蜜莉抱起时的模型错误，修正艾蜜莉跳舞衣服的错误\n· 料理系统修复：修正菜刀、砧板碰撞错误，修正厨具液体残留、餐盘归位等问题\n· UI与操作修复：修正持枪模式邀约喝酒先收枪、NPC传讯时小地图强制关闭、使用UI时还能按E上车等错误\n· 任务修复：修正艾蜜莉罗宋汤任务可被其他NPC完成的错误\n· 其他修正：修正娜娜和服取得时机（不用睡觉就能获得）、降低雨天发生几率、修正设置烟火发射器时开地图退出的错误",
         "stars": "★★★★"
     },
     {
