@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="小花游戏 - 游戏资源分享">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+    <title>小花游戏</title>
+    <style>
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; padding: 20px 20px 80px 20px; width: 100%; max-width: 1400px; margin: 0 auto; box-sizing: border-box; }
+        .header-container { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        h1 { margin: 0; }
+        .btn-home { background: #2196F3; color: white; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: bold; }
+        .notice-wrapper { display: flex; gap: 10px; margin-bottom: 20px; align-items: stretch; }
+        .btn-customer-service { background: #4CAF50; color: white; border: none; text-decoration: none; padding: 0 20px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; white-space: nowrap; transition: background 0.2s; }
+        .btn-customer-service:hover { background: #388E3C; }
+        .global-notice { flex: 1; display: flex; justify-content: center; align-items: center; gap: 10px; padding: 8px 10px; background-color: #ffebee; border: 2px solid #f44336; border-radius: 8px; color: #d32f2f; font-size: 18px; font-weight: bold; flex-wrap: wrap; margin: 0; }
+        .btn-notepad { background: #2196F3; color: white; border: none; text-decoration: none; padding: 0 20px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; white-space: nowrap; transition: background 0.2s; }
+        .btn-notepad:hover { background: #1976D2; }
+        .pwd-text { font-size: 20px; color: #ff0000; background: #fff; padding: 4px 10px; border-radius: 4px; border: 1px dashed #f44336; }
+        .btn-copy { background: #f44336; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .controls-container { display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .search-wrapper { flex: 1; min-width: 200px; position: relative; display: flex; }
+        .search-box { width: 100%; padding: 12px 35px 12px 15px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; box-sizing: border-box;}
+        .search-box::-webkit-search-cancel-button { display: none; }
+        .clear-search-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: #ccc; color: white; border-radius: 50%; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; line-height: 1; z-index: 2; }
+        .clear-search-btn:hover { background: #999; }
+        .search-box:disabled + .clear-search-btn { display: none !important; }
+        .sort-select { padding: 12px 15px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; cursor: pointer; transition: opacity 0.3s; }
+        .sort-select:disabled { opacity: 0.5; cursor: not-allowed; background: #eee; }
+        .filter-buttons { display: flex; gap: 5px; flex-wrap: wrap; }
+        .btn-filter { padding: 12px 20px; font-size: 15px; border: 2px solid #2196F3; background: white; color: #2196F3; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-filter.active { background: #2196F3; color: white; }
+        .search-box:disabled, .btn-filter:disabled { opacity: 0.5; cursor: not-allowed; background: #eee; }
+        .list-header, li { display: flex; align-items: center; }
+        .col-name, .cell-name { flex: 3; min-width: 0; padding-left: 5px; display: flex; align-items: center; }
+        .col-size, .cell-size { flex: 1; min-width: 0; text-align: center; color: #000; font-size: 16px; font-weight: bold; }
+        .col-date, .cell-date { flex: 1.2; min-width: 0; text-align: center; font-size: 16px; color: #000; }
+        .cell-meta-row { display: contents; }
+        .col-stars, .cell-stars { flex: 1.2; min-width: 0; text-align: center; }
+        .col-preview, .cell-preview { flex: 1; text-align: center; }
+        .col-download, .cell-download { flex: 2.5; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .col-right, .cell-right { flex: 1.2; text-align: center; }
+        .list-header { padding: 10px 15px; font-weight: bold; font-size: 16px; margin-bottom: 5px; }
+        #gameList { list-style: none; padding: 0; margin-top: 0; }
+        li { padding: 10px 15px; border: 1px solid #ddd; margin: 5px 0; border-radius: 4px; cursor: default; box-sizing: border-box; }
+        .game-name { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .cell-stars { color: #000; font-weight: bold; font-size: 16px; letter-spacing: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .date-text { font-size: 14px; color: #666; font-weight: bold; }
+        .btn { padding: 8px 12px; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; white-space: nowrap; text-decoration: none; display: inline-block; }
+        .btn-preview { background: #2196F3; }
+        .btn-cloud { background: #FF9800; }
+        .btn-baidu { background: #4CAF50; }
+        .btn-unzip { background: #9C27B0; }
+        .fatal-li { padding: 0; border: none; background: transparent; display: block; }
+        .empty-state-box { width: 100%; text-align: center; padding: 30px 20px; border-radius: 8px; margin-top: 10px; box-sizing: border-box; }
+        .fatal-box { background: #fff8f8; border: 2px dashed #f44336; }
+        .fatal-box p { color: #d32f2f; font-size: 16px; font-weight: bold; margin-bottom: 15px; }
+        .btn-fatal { background: #f44336; font-size: 15px; padding: 10px 20px; border-radius: 6px; font-weight: bold; transition: background 0.2s; }
+        .btn-fatal:hover { background: #d32f2f; color: white; }
+        .empty-search-box { background: #fafafa; border: 1px dashed #ccc; }
+        .empty-search-box p { color: #666; font-size: 15px; margin-bottom: 15px; }
+        .btn-empty-search { background: #9E9E9E; font-size: 14px; padding: 8px 16px; cursor: pointer; border: none; color: white; border-radius: 4px;}
+        .btn-empty-search:hover { background: #757575; }
+        .bottom-tip { text-align: center; margin-top: 40px; font-size: 13px; color: #999; }
+        .bottom-tip a { color: #2196F3; text-decoration: none; cursor: pointer; }
+        #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 12px 22px; border-radius: 6px; display: none; z-index: 99999; font-size: 15px; max-width: 80vw; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: all 0.3s; }
+        .modal-overlay.show { opacity: 1; visibility: visible; }
+        .modal-box { background: white; padding: 30px 25px; border-radius: 12px; text-align: center; max-width: 85vw; width: 340px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transform: scale(0.9); transition: all 0.3s; }
+        .modal-overlay.show .modal-box { transform: scale(1); }
+        .modal-box h3 { margin: 0 0 10px 0; font-size: 18px; }
+        .modal-box p { margin: 0 0 20px 0; color: #666; font-size: 15px; line-height: 1.5; }
+        .modal-box .pwd-highlight { font-size: 22px; color: #f44336; font-weight: bold; background: #ffebee; padding: 4px 10px; border-radius: 6px; display: inline-block; margin: 10px 0; letter-spacing: 2px; }
+        .modal-box button { background: #2196F3; color: white; border: none; padding: 10px 30px; font-size: 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: background 0.2s;}
+        .modal-box button:hover { background: #1976D2; }
+        .update-detail-content { text-align: left; white-space: pre-wrap; word-break: break-word; line-height: 1.8; font-size: 15px; color: #444; max-height: 55vh; overflow-y: auto; margin: 15px 0 20px; }
+        .update-detail-content::-webkit-scrollbar { width: 6px; }
+        .update-detail-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .update-detail-content::-webkit-scrollbar-thumb:hover { background: #999; }
+        .update-detail-content::-webkit-scrollbar-track { background: transparent; }
+        .btn-update-detail { flex-shrink: 0; margin-left: 8px; padding: 5px 10px; border: none; border-radius: 4px; background: #2196F3; color: white; font-size: 12px; cursor: pointer; white-space: nowrap; }
+        .btn-update-detail:hover { background: #1976D2; }
+        .modal-box.error h3 { color: #d32f2f; }
+        .modal-box.error button { background: #f44336; }
+        .result-count { font-size: 14px; color: #666; margin-bottom: 10px; padding-left: 5px; }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: #2196F3; color: white; border: none; border-radius: 50%; font-size: 24px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 999; }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background: #1976D2; transform: translateY(-3px); }
+        .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 30px; padding: 10px 0; flex-wrap: wrap; }
+        .pagination button { padding: 8px 14px; font-size: 15px; border: 2px solid #2196F3; background: white; color: #2196F3; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; min-width: 40px; }
+        .pagination button:hover:not(:disabled) { background: #2196F3; color: white; }
+        .pagination button.active { background: #2196F3; color: white; border-color: #2196F3; }
+        .pagination button:disabled { opacity: 0.5; cursor: not-allowed; border-color: #ccc; color: #999; background: #eee; }
+        .pagination span.ellipsis { font-size: 15px; color: #999; font-weight: bold; margin: 0 5px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 90px; }
+            .notice-wrapper { flex-direction: column; }
+            .btn-customer-service { padding: 12px 20px; }
+            .btn-notepad { padding: 12px 20px; }
+            .list-header { display: none; }
+            li { flex-direction: column; align-items: stretch; gap: 10px; padding: 15px; }
+            .cell-name, .cell-stars, .cell-preview, .cell-download, .cell-right { width: 100%; text-align: left; flex: none; }
+            .cell-download { justify-content: flex-start; }
+            .cell-preview .btn, .cell-right .btn { width: 100%; padding: 10px 8px; }
+            .cell-download .btn { flex: 1 1 calc(50% - 4px); padding: 10px 8px; }
+            .game-name { white-space: normal; overflow: visible; text-overflow: clip; }
+            .cell-stars { white-space: normal; }
+            .cell-meta-row {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                min-width: 0;
+            }
+
+            .cell-meta-row .cell-size {
+                order: 1;
+                flex: 0 0 auto;
+                width: auto;
+                min-width: 0;
+                text-align: left;
+                margin-top: 0;
+            }
+
+            .cell-meta-row .cell-date {
+                order: 2;
+                flex: 0 0 auto;
+                width: auto;
+                min-width: 0;
+                text-align: right;
+                margin-top: 0;
+            }
+            .date-text { text-align: left; }
+            .back-to-top { width: 45px; height: 45px; bottom: 20px; right: 20px; font-size: 20px; }
+            .pagination button { padding: 6px 10px; font-size: 14px; min-width: 32px; }
+        }
+        
+        .btn-help { padding: 12px 20px; font-size: 15px; border: 2px solid #607D8B; background: white; color: #607D8B; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-help:hover { background: #eceff1; }
+        .btn-help:disabled { opacity: 0.5; cursor: not-allowed; background: #eee; border-color: #ccc; color: #999; }
+        .help-box { width: 560px; max-width: 90vw; text-align: left; }
+        .help-box h3 { text-align: center; color: #333; margin-bottom: 15px; }
+        .help-content { background: #f5f7fa; border: 1px solid #e0e0e0; border-radius: 8px; padding: 18px 20px; margin-bottom: 20px; max-height: 55vh; overflow-y: auto; color: #333; font-size: 14px; line-height: 1.75; white-space: pre-wrap; word-break: break-word; }
+        .help-content strong { color: #d32f2f; }
+        .help-content::-webkit-scrollbar { width: 6px; }
+        .help-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .help-content::-webkit-scrollbar-thumb:hover { background: #999; }
+        .help-content::-webkit-scrollbar-track { background: transparent; }
+        .help-box button { background: #607D8B; }
+        .help-box button:hover { background: #455A64; }
+        .help-box .btn-contact { background: #4CAF50; }
+        .help-box .btn-contact:hover { background: #388E3C; }
+        .modal-btn-group { display: flex; gap: 10px; width: 100%; margin-top: 10px; }
+        .modal-btn-group button, .modal-btn-group a { flex: 1; margin: 0; box-sizing: border-box; padding: 10px 0; font-size: 16px; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; text-decoration: none; }
+        .btn-contact { background: #4CAF50; color: white; border: none; transition: background 0.2s; }
+        .btn-contact:hover { background: #388E3C; }
+
+        #customerServiceList {
+            flex-direction: column;
+        }
+
+        /* ================= 密码本：PC端原版布局 ================= */
+        .notepad-list::-webkit-scrollbar { width: 6px; }
+        .notepad-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        .notepad-list::-webkit-scrollbar-track { background: transparent; }
+        .notepad-box { width: 650px; max-width: 95vw; text-align: left; overflow: hidden; max-height: 90vh; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .notepad-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px; flex-shrink: 0; }
+        .notepad-header h3 { margin: 0; color: #333; white-space: nowrap; flex-shrink: 0; }
+        .btn-export { background: #607D8B; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+        .btn-export:hover { background: #455A64; }
+        .notepad-form { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; flex-shrink: 0; }
+        .btn-save { background: #4CAF50; padding: 8px 20px; font-size: 14px; border-radius: 6px; border: none; color: white; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px; }
+        .notepad-table-header { display: flex; padding: 0 10px 8px 10px; border-bottom: 2px solid #eee; margin-bottom: 8px; font-weight: bold; color: #000; font-size: 14px; flex-shrink: 0; }
+        .notepad-header-name { width: var(--col-w, 140px); flex-shrink: 0; padding-left: 10px; }
+        .notepad-header-pwd { width: var(--col-w, 140px); flex-shrink: 0; text-align: left; padding-left: 10px; }
+        .notepad-header-action { flex: 1; text-align: center; }
+        .notepad-list { overflow-y: auto; overflow-x: hidden; flex-grow: 1; min-height: 0; margin-bottom: 5px; padding-right: 5px; }
+        .notepad-item { display: flex; align-items: center; padding: 6px 10px; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 8px; background: #fafafa; box-sizing: border-box; }
+        .notepad-actions { display: flex; flex-direction: row; gap: 4px; flex-wrap: nowrap; flex: 1; justify-content: center; flex-shrink: 0; position: relative; z-index: 10; }
+        .btn-small { padding: 4px 8px; font-size: 12px; border-radius: 4px; cursor: pointer; border: none; color: white; white-space: nowrap; margin: 0; transition: background 0.2s; width: auto !important; }
+        .btn-copy-small { background: #2196F3; }
+        .btn-copy-small:hover { background: #1976D2; }
+        .btn-edit-small { background: #FF9800; }
+        .btn-edit-small:hover { background: #F57C00; }
+        .btn-del-small { background: #f44336; }
+        .btn-del-small:hover { background: #d32f2f; }
+        #notepadPagination.pagination { display: flex !important; flex-direction: row !important; justify-content: center !important; align-items: center !important; flex-wrap: wrap !important; gap: 8px !important; margin-top: 15px !important; padding: 10px 0 !important; width: 100% !important; flex-shrink: 0 !important; }
+        #notepadPagination.pagination button { width: auto !important; flex: 0 0 auto !important; padding: 6px 12px !important; font-size: 14px !important; min-width: 36px !important; border-radius: 6px !important; margin: 0 !important; border: 2px solid #2196F3 !important; background: white !important; color: #2196F3 !important; font-weight: bold !important; cursor: pointer !important; transition: all 0.2s !important; box-sizing: border-box !important; }
+        #notepadPagination.pagination button:hover:not(:disabled) { background: #2196F3 !important; color: white !important; }
+        #notepadPagination.pagination button.active { background: #2196F3 !important; color: white !important; }
+        #notepadPagination.pagination button:disabled { opacity: 0.5 !important; cursor: not-allowed !important; border-color: #ccc !important; color: #999 !important; background: #eee !important; }
+        #notepadPagination.pagination span.ellipsis { font-size: 14px !important; color: #999 !important; font-weight: bold !important; margin: 0 4px !important; }
+        .notepad-col-name { width: var(--col-w, 140px); flex-shrink: 0; overflow: hidden; white-space: nowrap; }
+        .notepad-col-pwd { width: var(--col-w, 140px); flex-shrink: 0; overflow: hidden; white-space: nowrap; padding: 0 10px; }
+        .scroll-text { display: inline-block; white-space: nowrap; }
+        @media (hover: hover) and (pointer: fine) {
+            .is-overflow:hover .scroll-text { animation: marquee 2s linear infinite alternate; }
+        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-100% + var(--col-w, 140px))); } }
+        #btnCancelEdit { background-color: #607D8B !important; transition: background 0.2s; width: auto !important; }
+        #btnCancelEdit:hover { background-color: #455A64 !important; }
+        #notepadCloseBtn { background-color: #2196F3 !important; color: white; transition: background 0.2s; width: 100% !important; margin-top: 10px; padding: 10px 0; border-radius: 6px; font-size: 16px; font-weight: bold; }
+        #notepadCloseBtn:hover { background-color: #1976D2 !important; }
+        .notepad-input-wrapper { position: relative; flex: 1; min-width: 150px; display: flex; }
+        .notepad-input-wrapper .clear-input-btn { position: absolute !important; right: 8px !important; top: 50% !important; transform: translateY(-50%) !important; width: 20px !important; height: 20px !important; background: #d9d9d9 !important; color: #fff !important; border-radius: 50% !important; border: none !important; cursor: pointer !important; display: none; align-items: center !important; justify-content: center !important; font-size: 14px !important; font-weight: bold !important; line-height: 1 !important; padding: 0 !important; z-index: 10 !important; box-sizing: border-box !important; }
+        .notepad-input-wrapper .clear-input-btn:hover { background: #999 !important; }
+        .notepad-input { width: 100% !important; padding: 8px 30px 8px 10px !important; border: 1px solid #ddd !important; border-radius: 6px !important; outline: none !important; font-size: 14px !important; box-sizing: border-box !important; }
+        .confirm-box { width: 320px; max-width: 90vw; text-align: left; }
+        .confirm-title { color: #f44336; font-size: 18px; margin-bottom: 10px; font-weight: bold; }
+        .confirm-desc { color: #333; font-size: 15px; margin-bottom: 20px; line-height: 1.5; word-break: break-all; }
+        .confirm-btn-group { display: flex; gap: 10px; }
+        .confirm-btn-group button { flex: 1; padding: 8px 0; font-size: 15px; }
+        .btn-cancel-del { background: #9E9E9E; }
+        .btn-cancel-del:hover { background: #757575; }
+        .btn-confirm-del { background: #f44336; }
+        .btn-confirm-del:hover { background: #d32f2f; }
+
+        /* ================= 手机端专属修复 ================= */
+        @media (max-width: 768px) {
+            .notepad-box { width: 98vw !important; padding: 15px 10px; max-width: 98vw !important; }
+            .notepad-list, .update-detail-content, .help-content {
+                scrollbar-width: none;      /* 针对 Firefox */
+                -ms-overflow-style: none;   /* 针对 IE/Edge */
+            }
+
+            .notepad-list::-webkit-scrollbar, 
+            .update-detail-content::-webkit-scrollbar,
+            .help-content::-webkit-scrollbar {
+                display: none;              /* 针对 Chrome/Safari/安卓 */
+            }
+            .notepad-header h3 {
+                font-size: 16px;
+            }
+            .notepad-form { gap: 6px; }
+            .notepad-input-wrapper { min-width: 100%; }
+            .btn-save { margin-top: 0; padding: 10px; font-size: 15px; }
+
+            .notepad-table-header { display: none; }
+            
+            .notepad-item { flex-direction: column; align-items: stretch; padding: 10px; gap: 8px; }
+            
+            .notepad-col-name, .notepad-col-pwd { width: 100%; padding: 0; height: auto; white-space: normal; font-size: 14px; }
+            .notepad-col-name::before { content: "游戏名: "; color: #666; font-size: 13px; }
+            .notepad-col-pwd::before { content: "解压码: "; color: #666; font-size: 13px; }
+            
+            .notepad-actions { width: 100%; margin-top: 5px; justify-content: space-between; gap: 8px; }
+            .notepad-actions .btn-small { flex: 1; padding: 8px 0; font-size: 13px; }
+            .scroll-text { white-space: normal; }
+            .is-overflow:hover .scroll-text { animation: none; }
+        }
+        
+        /* 搜索框专属外边距 */
+        .notepad-search-container { margin-bottom: 15px; width: 100%; display: flex; }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>🌸 小花游戏 🌸</h1>
+        <a href="https://vlink.cc/xhfx" target="_blank" rel="noopener noreferrer" class="btn-home">🏠 小花主页</a>
+    </div>
+    <div class="notice-wrapper">
+        <button type="button" class="btn-customer-service" id="btnCustomerService">💬 客服</button>
+        <div class="global-notice">
+            <span>💡 小花提示：所有预览解压码都是：</span>
+            <span class="pwd-text">小花123321</span>
+            <button type="button" class="btn-copy" id="btnCopyPwd">📋 复制解压码</button>
+        </div>
+        <button type="button" class="btn-notepad" id="btnNotepad">📒 密码本</button>
+    </div>
+    <div class="controls-container">
+        <div class="search-wrapper">
+            <input type="search" id="searchInput" class="search-box" placeholder="🔍 输入游戏名快速搜索..." autocomplete="off">
+            <button type="button" class="clear-search-btn" id="clearSearchBtn" aria-label="清空搜索">×</button>
+        </div>
+        <div class="filter-buttons">
+            <button type="button" class="btn-filter active" data-filter="all">🎮 全部游戏</button>
+            <button type="button" class="btn-filter" data-filter="new">🆕 最近新增</button>
+            <button type="button" class="btn-filter" data-filter="update">🔄 最新更新</button>
+            <button type="button" class="btn-help" id="btnHelp">❓ 说明帮助</button>
+            <button type="button" class="btn-filter" id="btnCheckUpdate">🔄 检查更新</button>
+        </div>
+        <select id="sortSelect" class="sort-select">
+            <option value="default">默认排序</option>
+            <option value="name">名称排序</option>
+            <option value="stars">推荐指数</option>
+        </select>
+    </div>
+    <div id="resultCount" class="result-count"></div>
+    <div class="list-header">
+        <div class="col-name">游戏名</div>
+        <div class="col-date" id="headerDate" style="display: none;">新增日期</div>
+        <div class="col-size">游戏大小</div>
+        <div class="col-stars">推荐指数</div>
+        <div class="col-preview">游戏预览</div>
+        <div class="col-download">下载链接</div>
+        <div class="col-right" id="headerRight">获取解压码</div>
+    </div>
+    <div id="loading" style="text-align: center; color: #666; margin-top: 20px;">正在从云端获取最新游戏列表...</div>
+    <ul id="gameList"></ul>
+    <div class="pagination" id="pagination"></div>
+    <div class="bottom-tip">
+        列表加载不出来？<a href="javascript:void(0);" id="btnReload">点击刷新</a> 或 <a href="#" id="bottomBackupLink" target="_blank" rel="noopener noreferrer">直接前往备用</a>
+    </div>
+    <button type="button" class="back-to-top" id="backToTop" title="返回顶部" aria-label="返回顶部">↑</button>
+    <div id="toast" role="status" aria-live="polite"></div>
+    
+    <div class="modal-overlay" id="copyModal">
+        <div class="modal-box" id="modalBox">
+            <h3 id="modalTitle">✅ 提取码已复制</h3>
+            <p id="modalDesc">请在新打开的页面中直接<strong>粘贴</strong>即可下载。</p>
+            <div class="pwd-highlight" id="modalPwd">XXXX</div>
+            <button type="button" id="modalBtn" style="width: 100%;">我知道了</button>
+        </div>
+    </div>
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal-box help-box">
+            <h3 id="helpTitle">❓ 说明帮助</h3>
+            <div class="help-content" id="helpContent"></div>
+            <div class="modal-btn-group">
+                <button type="button" class="btn-contact" id="btnHelpContact">💬 联系客服</button>
+                <button type="button" id="helpBtn">我知道了</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal-overlay" id="customerServiceModal">
+        <div class="modal-box">
+            <h3>💬 请选择客服</h3>
+            <div id="customerServiceList" class="modal-btn-group"></div>
+            <button type="button" id="closeCustomerService" style="width: 100%; margin-top: 10px;">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="notepadModal">
+        <div class="modal-box notepad-box">
+            <div class="notepad-header">
+                <h3>📒 我的密码本</h3>
+                <div style="display:flex; gap:5px;">
+                    <button type="button" class="btn-export" id="btnImportNotepad" style="background:#FF9800;">📂 导入</button>
+                    <button type="button" class="btn-export" id="btnExportNotepad" style="background:#607D8B;">💾 导出</button>
+                </div>
+            </div>
+            <div class="notepad-form">
+                <div class="notepad-input-wrapper">
+                    <input type="text" id="notepadName" class="notepad-input" placeholder="✏️输入游戏名...">
+                    <button type="button" class="clear-input-btn" id="clearNotepadName" aria-label="清空">×</button>
+                </div>
+                <div class="notepad-input-wrapper">
+                    <input type="text" id="notepadPwd" class="notepad-input" placeholder="✏️输入密码...">
+                    <button type="button" class="clear-input-btn" id="clearNotepadPwd" aria-label="清空">×</button>
+                </div>
+                <button type="button" class="btn-save" id="btnSaveNotepad">保存</button>
+            </div>
+            
+            <div class="notepad-search-container">
+                <div class="notepad-input-wrapper" style="width: 100%;">
+                    <input type="text" id="notepadSearchInput" class="notepad-input" placeholder="🔍 搜索游戏名或密码..." autocomplete="off">
+                    <button type="button" class="clear-input-btn" id="clearNotepadSearchBtn" aria-label="清空">×</button>
+                </div>
+            </div>
+            
+            <div class="notepad-table-header">
+                <div class="notepad-header-name">游戏名</div>
+                <div class="notepad-header-pwd">解压码</div>
+                <div class="notepad-header-action">操作</div>
+            </div>
+            <div class="notepad-list" id="notepadList"></div>
+            <div class="pagination" id="notepadPagination"></div>
+            <button type="button" id="notepadCloseBtn" class="notepad-close-btn">关闭</button>
+        </div>
+    </div>
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-box" style="width: 300px;">
+            <h3 style="color:#FF9800;">✏️ 修改密码</h3>
+            <div style="margin-bottom: 15px; text-align: left;">
+                <div style="margin-bottom: 5px; font-size: 14px; color: #666;">游戏名</div>
+                <input type="text" id="editName" class="notepad-input" style="width: 100% !important;">
+            </div>
+            <div style="margin-bottom: 20px; text-align: left;">
+                <div style="margin-bottom: 5px; font-size: 14px; color: #666;">新密码</div>
+                <input type="text" id="editPwd" class="notepad-input" style="width: 100% !important;">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button type="button" id="btnCancelEdit" style="flex: 1;">取消</button>
+                <button type="button" id="btnSaveEdit" style="background: #4CAF50; flex: 1;">保存</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-box confirm-box">
+            <div class="confirm-title">🌸 小花提示</div>
+            <div class="confirm-desc" id="deleteMsg">确定要删除这条记录吗？</div>
+            <div class="confirm-btn-group">
+                <button type="button" id="btnCancelDel" class="btn-cancel-del">取消</button>
+                <button type="button" id="btnConfirmDel" class="btn-confirm-del">确定</button>
+            </div>
+        </div>
+    </div>
+    <!-- 更新详情弹窗 -->
+    <div class="modal-overlay" id="updateDetailModal">
+        <div class="modal-box">
+            <h3 id="updateDetailTitle">📋 更新详情</h3>
+            <div id="updateDetailContent" class="update-detail-content"></div>
+            <button type="button" id="btnCloseUpdateDetail">关闭</button>
+        </div>
+    </div>
+    <input type="file" id="fileInput" accept=".json" style="display: none;">
+
+    <script>
+        let allGames = [];
+        let customerServiceList = [];
+        let currentFilter = 'all';
+        let fetchGeneration = 0;
+        let lastSortValue = 'default';
+        let activeController = null;
+        let isFatalError = false;
+        let currentPage = 1;
+        const PAGE_SIZE = 20;
+        const FRESH_DAYS = 15;
+
+        let idCounter = 0;
+        function genId() {
+            return Date.now().toString(36) + (idCounter++).toString(36) + Math.random().toString(36).slice(2, 6);
+        }
+
+        function getStarCount(stars) {
+            if (!stars) return 0;
+            if (typeof stars === 'number') return stars;
+            const num = Number(stars);
+            if (!isNaN(num)) return num;
+            const m = String(stars).match(/[★⭐]/g);
+            return m ? m.length : 0;
+        }
+
+        function parseDate(s) {
+            if (!s) return 0;
+            const m = String(s).match(/(\d{4})[-/年](\d{1,2})[-/月](\d{1,2})/);
+            if (!m) return 0;
+            const y = +m[1], mo = +m[2], d = +m[3];
+            if (mo < 1 || mo > 12 || d < 1 || d > 31) return 0;
+            const daysInMonth = new Date(y, mo, 0).getDate();
+            if (d > daysInMonth) return 0;
+            return new Date(y, mo - 1, d).getTime();
+        }
+
+// 判断日期是否在最近15天内
+        function isWithinFreshDays(dateStr) {
+            const t = parseDate(dateStr);
+            if (!t) return false;
+
+            const ageDays = (Date.now() - t) / (1000 * 60 * 60 * 24);
+            return ageDays >= 0 && ageDays <= FRESH_DAYS;
+        }
+
+// 有有效新增日期，就一直显示在最近新增
+        function isNewGame(g) {
+            return parseDate(g.date) > 0;
+        }
+
+// 有有效更新日期，就一直显示在最近更新
+        function isUpdatedGame(g) {
+            return parseDate(g.update_date) > 0;
+        }
+
+        function getGamePrefix(g) {
+            if (isUpdatedGame(g)) {
+                return isWithinFreshDays(g.update_date) ? '🔄 ' : '🎮 ';
+            }
+
+            if (isNewGame(g)) {
+                return isWithinFreshDays(g.date) ? '🆕 ' : '🎮 ';
+            }
+
+            return '🎮 ';
+        }
+
+        function isSafeUrl(url) {
+            if (!url) return false;
+            try {
+                const u = new URL(url, location.href);
+                return u.protocol === 'http:' || u.protocol === 'https:';
+            } catch (e) { return false; }
+        }
+
+        function safeOpen(url) {
+            if (!url) return false;
+            if (!isSafeUrl(url)) {
+                showToast('⚠️ 链接协议不安全，已阻止打开');
+                return false;
+            }
+            try {
+                const u = new URL(url, location.href);
+                const w = window.open(u.href, '_blank');
+                if (w) {
+                    try { w.opener = null; } catch (e) {}
+                    return true;
+                } else {
+                    showToast('⚠️ 弹窗被拦截，请允许后重试');
+                    return false;
+                }
+            } catch (e) {
+                showToast('⚠️ 链接格式无效');
+                return false;
+            }
+        }
+
+        function anyPromise(promises) {
+            if (typeof Promise.any === 'function') return Promise.any(promises);
+            return new Promise((resolve, reject) => {
+                let remaining = promises.length;
+                let lastErr;
+                if (remaining === 0) return reject(new Error('no promise'));
+                promises.forEach(p => {
+                    Promise.resolve(p).then(resolve, err => {
+                        lastErr = err;
+                        if (--remaining === 0) reject(lastErr);
+                    });
+                });
+            });
+        }
+
+
+        const openModalOverlays = new Set();
+// 弹窗历史记录栈：支持多层弹窗逐级返回
+const modalHistoryStack = [];
+
+function safeShowModal(overlay) {
+    if (!overlay) return;
+
+    // 避免同一个弹窗重复加入
+    if (!modalHistoryStack.includes(overlay)) {
+        modalHistoryStack.push(overlay);
+
+        try {
+            const currentState = history.state &&
+                typeof history.state === 'object'
+                ? history.state
+                : {};
+
+            history.pushState(
+                {
+                    ...currentState,
+                    __modalDepth: modalHistoryStack.length
+                },
+                '',
+                location.href
+            );
+        } catch (e) {
+            console.warn('弹窗返回记录创建失败：', e);
+        }
+    }
+
+    overlay.classList.add('show');
+    openModalOverlays.add(overlay);
+    document.body.style.overflow = 'hidden';
+}
+
+function safeHideModal(overlay) {
+    if (!overlay) return;
+
+    overlay.classList.remove('show');
+    openModalOverlays.delete(overlay);
+
+    const index = modalHistoryStack.indexOf(overlay);
+
+    if (index !== -1) {
+        modalHistoryStack.splice(index, 1);
+
+        // 手动关闭最上层弹窗时，同步退回一层历史记录
+        if (index === modalHistoryStack.length) {
+            history.back();
+        }
+    }
+
+    const anyVisible = document.querySelector('.modal-overlay.show');
+
+    document.body.style.overflow =
+        (openModalOverlays.size > 0 || anyVisible) ? 'hidden' : '';
+}
+
+// 手机返回键或浏览器滑动返回：只关闭最上层弹窗
+window.addEventListener('popstate', (event) => {
+    const targetDepth = Number.isInteger(event.state?.__modalDepth)
+        ? event.state.__modalDepth
+        : 0;
+
+    while (modalHistoryStack.length > targetDepth) {
+        const overlay = modalHistoryStack.pop();
+
+        if (overlay) {
+            overlay.classList.remove('show');
+            openModalOverlays.delete(overlay);
+        }
+    }
+
+    const anyVisible = document.querySelector('.modal-overlay.show');
+
+    document.body.style.overflow =
+        (openModalOverlays.size > 0 || anyVisible) ? 'hidden' : '';
+});
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.style.display = 'block';
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        // ==================== 小花游戏在线版本更新 ====================
+        // 每次发布新版本时，更新 GitHub 仓库中的 version.json 即可。
+        const APP_VERSION = '1.0.0';
+        const VERSION_URLS = [
+            'https://cdn.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/version.json',
+            'https://gcore.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/version.json',
+            'https://raw.githubusercontent.com/XHxiaohuaXH/xiaohua-games/main/version.json'
+        ];
+        const UPDATE_STATE_KEY = 'xiaohua_last_update_check';
+
+        function compareVersions(a, b) {
+            const aa = String(a || '0').split('.').map(v => parseInt(v, 10) || 0);
+            const bb = String(b || '0').split('.').map(v => parseInt(v, 10) || 0);
+            for (let i = 0; i < Math.max(aa.length, bb.length); i++) {
+                const x = aa[i] || 0;
+                const y = bb[i] || 0;
+                if (x > y) return 1;
+                if (x < y) return -1;
+            }
+            return 0;
+        }
+
+        async function getLatestVersionInfo() {
+            let lastError = null;
+            for (const baseUrl of VERSION_URLS) {
+                try {
+                    const response = await fetch(baseUrl + '?t=' + Date.now(), { cache: 'no-store' });
+                    if (!response.ok) throw new Error('HTTP ' + response.status);
+                    const info = await response.json();
+                    if (!info || !info.version || !info.download_url) {
+                        throw new Error('version.json 格式不正确');
+                    }
+                    return info;
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+            throw lastError || new Error('无法连接版本服务器');
+        }
+
+        function showVersionDialog(info) {
+            const overlay = document.getElementById('updateDetailModal');
+            const title = document.getElementById('updateDetailTitle');
+            const content = document.getElementById('updateDetailContent');
+            const oldButton = document.getElementById('btnCloseUpdateDetail');
+            title.textContent = '🌸 发现小花游戏新版本';
+            content.replaceChildren();
+
+            const currentLine = document.createElement('p');
+            currentLine.textContent = '当前版本：' + APP_VERSION;
+            const latestLine = document.createElement('p');
+            latestLine.textContent = '最新版本：' + info.version;
+            const dateLine = document.createElement('p');
+            dateLine.textContent = '更新时间：' + (info.update_time || '未提供');
+            const logLine = document.createElement('p');
+            logLine.textContent = '更新内容：' + (info.update_log || '修复问题并优化体验');
+            [currentLine, latestLine, dateLine, logLine].forEach(node => content.appendChild(node));
+
+            const action = document.createElement('a');
+            action.href = info.download_url;
+            action.target = '_blank';
+            action.rel = 'noopener noreferrer';
+            action.textContent = location.protocol === 'file:' ? '⬇️ 下载新版 HTML 文件' : '🔄 刷新获取最新版';
+            action.style.cssText = 'display:inline-block;margin:8px 8px 0 0;padding:10px 16px;background:#4CAF50;color:#fff;border-radius:6px;text-decoration:none;font-weight:bold;';
+            if (location.protocol !== 'file:') {
+                action.href = 'javascript:void(0)';
+                action.removeAttribute('target');
+                action.addEventListener('click', () => location.reload());
+            } else {
+                action.setAttribute('download', '小花游戏.html');
+            }
+            content.appendChild(action);
+            oldButton.textContent = '稍后更新';
+            oldButton.onclick = () => safeHideModal(overlay);
+            safeShowModal(overlay);
+        }
+
+        async function checkForUpdates(manual = false) {
+            const button = document.getElementById('btnCheckUpdate');
+            if (button) {
+                button.disabled = true;
+                if (manual) button.textContent = '⏳ 正在检查';
+            }
+            try {
+                const info = await getLatestVersionInfo();
+                try { localStorage.setItem(UPDATE_STATE_KEY, String(Date.now())); } catch (e) {}
+                if (compareVersions(info.version, APP_VERSION) > 0) {
+                    showVersionDialog(info);
+                } else if (manual) {
+                    showToast('✅ 当前已经是最新版本（' + APP_VERSION + '）');
+                }
+            } catch (error) {
+                if (manual) showToast('⚠️ 更新检查失败，请检查网络后重试');
+                console.warn('小花游戏版本检查失败：', error);
+            } finally {
+                if (button) {
+                    button.disabled = false;
+                    button.textContent = '🔄 检查更新';
+                }
+            }
+        }
+
+        document.getElementById('btnCheckUpdate').addEventListener('click', () => checkForUpdates(true));
+
+        // 自动检查：每次打开页面时执行；不阻塞游戏列表加载。
+        window.addEventListener('load', () => {
+            setTimeout(() => checkForUpdates(false), 1200);
+        });
+        // ================== 在线版本更新功能结束 ==================
+
+        function forceSyncCopy(text) {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.top = "-9999px";
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            ta.setSelectionRange(0, text.length);
+            let ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            try { document.body.removeChild(ta); } catch (e) {}
+            return ok;
+        }
+
+        function copyToClipboard(text, onDone) {
+            const finish = (ok) => { if (typeof onDone === 'function') onDone(ok); };
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text)
+                    .then(() => finish(true))
+                    .catch(() => finish(forceSyncCopy(text)));
+                return;
+            }
+            finish(forceSyncCopy(text));
+        }
+
+        function showCopyModal(pwd, success, opened, url) {
+            const overlay = document.getElementById('copyModal');
+            const box = document.getElementById('modalBox');
+            const desc = document.getElementById('modalDesc');
+
+            if (success) {
+                box.classList.remove('error');
+                document.getElementById('modalTitle').textContent = opened ? '✅ 提取码已复制' : '✅ 提取码已复制 (但新页面被拦截)';
+                desc.replaceChildren();
+                if (opened) {
+                    desc.appendChild(document.createTextNode('请在新打开的页面中直接'));
+                    const strong = document.createElement('strong');
+                    strong.textContent = '粘贴';
+                    desc.appendChild(strong);
+                    desc.appendChild(document.createTextNode('即可下载。'));
+                } else {
+                    desc.appendChild(document.createTextNode('请手动前往网盘页面粘贴以下提取码：'));
+                    if (url && isSafeUrl(url)) {
+                        const p = document.createElement('p');
+                        p.style.marginTop = '12px';
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.target = '_blank';
+                        a.rel = 'noopener noreferrer';
+                        a.style.color = '#2196F3';
+                        a.style.textDecoration = 'underline';
+                        a.textContent = '👉 点击这里手动打开网盘链接';
+                        p.appendChild(a);
+                        desc.appendChild(p);
+                    }
+                }
+                document.getElementById('modalBtn').textContent = '我知道了';
+            } else {
+                box.classList.add('error');
+                document.getElementById('modalTitle').textContent = '⚠️ 复制失败';
+                desc.textContent = '由于浏览器权限限制，自动复制失败。请先长按选中下方提取码手动复制，再打开网盘粘贴。';
+                if (url && isSafeUrl(url)) {
+                    const linkWrap = document.createElement('p');
+                    linkWrap.style.marginTop = '12px';
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.style.color = '#2196F3';
+                    a.style.textDecoration = 'underline';
+                    a.textContent = '👉 手动打开网盘链接';
+                    linkWrap.appendChild(a);
+                    desc.appendChild(linkWrap);
+                }
+                document.getElementById('modalBtn').textContent = '关闭';
+            }
+            document.getElementById('modalPwd').textContent = pwd;
+            safeShowModal(overlay);
+            document.getElementById('modalBtn').onclick = () => safeHideModal(overlay);
+            overlay.onclick = (e) => {
+                if (e.target === overlay) safeHideModal(overlay);
+            };
+        }
+
+        const HELP_DOC = `
+【小花游戏 · 使用帮助】
+
+一、如何下载游戏？
+1. 在列表中找到想玩的游戏；
+2. 点击「☁️ 移动云盘」或「☁️ 百度网盘」按钮；
+3. 系统会自动复制提取码，并打开网盘页面；
+4. 在网盘页面粘贴提取码，即可下载。
+（如果提取码没复制成功，弹窗中会显示提取码，手动复制即可。）
+
+二、如何获取解压码？
+1.找到想玩的游戏；
+2.点击游戏后面对应的获取解压码按钮；
+3.然后在跳转的网页里直接点“支付宝支付”即可。
+（如果需要使用微信支付，请点击联系客服或者主页的客服进行操作。）
+
+三、密码本怎么用？
+点击顶部「📒 密码本」按钮，你可以把游戏名和对应的解压码保存下来。数据保存在你本机的浏览器缓存里，关掉网页也不会丢。支持一键导入、导出备份、以及修改删除记录。
+
+四、列表加载异常？
+1. 点击底部「点击刷新」尝试重新加载；
+2. 若无法连接服务器，请点击「直接前往备用」打开备用下载地址；
+3. 请检查您的网络连接是否正常。
+        `.trim();
+
+        function showCustomerServiceModal() {
+            const overlay = document.getElementById('customerServiceModal');
+            const container = document.getElementById('customerServiceList');
+
+            container.replaceChildren();
+
+            // 客服一、客服二继续从 JSON 获取
+            const validServices = customerServiceList.filter(item =>
+                item &&
+                item.name &&
+                isSafeUrl(item.url)
+            );
+
+            // 客服三直接写在 HTML 中，不依赖 JSON
+            validServices.push({
+                name: '【备用客服】',
+                url: 'https://docs.qq.com/doc/DU3lxQ2F6RERqemVQ'
+            });
+
+            validServices.forEach(item => {
+                const link = document.createElement('a');
+                link.className = 'btn-contact';
+                link.href = item.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = '💬 ' + item.name;
+
+                container.appendChild(link);
+            });
+
+            safeShowModal(overlay);
+        }
+
+        document.getElementById('btnCustomerService').addEventListener('click', () => {
+            showCustomerServiceModal();
+        });
+
+        document.getElementById('btnHelpContact').addEventListener('click', () => {
+            showCustomerServiceModal();
+        });
+
+        document.getElementById('closeCustomerService').addEventListener('click', () => {
+            safeHideModal(document.getElementById('customerServiceModal'));
+        });
+
+        document.getElementById('customerServiceModal').addEventListener('click', (e) => {
+            if (e.target.id === 'customerServiceModal') {
+                safeHideModal(e.currentTarget);
+            }
+        });
+        function showHelpModal() {
+            const overlay = document.getElementById('helpModal');
+            document.getElementById('helpContent').textContent = HELP_DOC;
+            safeShowModal(overlay);
+            document.getElementById('helpBtn').onclick = () => safeHideModal(overlay);
+            overlay.onclick = (e) => {
+                if (e.target === overlay) safeHideModal(overlay);
+            };
+        }
+
+        document.getElementById('btnHelp').addEventListener('click', () => {
+            showHelpModal();
+        });
+
+        const fatalUrl = "https://docs.qq.com/doc/DU2tKclVXU3VSZGVo";
+        document.getElementById('bottomBackupLink').href = fatalUrl;
+
+        const dataUrls = [
+            "https://cdn.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json",
+            "https://gcore.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json",
+            "https://raw.githubusercontent.com/XHxiaohuaXH/xiaohua-games/main/xiaohuagames.json"
+        ];
+
+        const list = document.getElementById('gameList');
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        const sortSelect = document.getElementById('sortSelect');
+        const loadingText = document.getElementById('loading');
+        const headerRight = document.getElementById('headerRight');
+        const resultCount = document.getElementById('resultCount');
+        const backToTopBtn = document.getElementById('backToTop');
+        const filterBtns = document.querySelectorAll('.btn-filter');
+        const pagination = document.getElementById('pagination');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        }, { passive: true });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('btnCopyPwd').addEventListener('click', () => {
+            copyToClipboard("小花123321", ok => showToast(ok ? "✅ 已成功复制解压码！" : "⚠️ 复制失败，请手动复制。"));
+        });
+
+        document.getElementById('btnReload').addEventListener('click', () => fetchData());
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (isFatalError) return;
+                const newFilter = e.currentTarget.getAttribute('data-filter');
+                if (currentFilter === 'all' && newFilter !== 'all') {
+                    lastSortValue = sortSelect.value;
+                }
+                currentFilter = newFilter;
+                filterBtns.forEach(b => b.classList.remove('active'));
+                e.currentTarget.classList.add('active');
+                headerRight.textContent = '获取解压码';
+
+                const headerDate = document.getElementById('headerDate');
+                headerDate.textContent = currentFilter === 'update' ? '更新日期' : '新增日期';
+                headerDate.style.display = currentFilter === 'all' ? 'none' : 'block';
+
+                sortSelect.innerHTML = '';
+                if (currentFilter === 'all') {
+                    sortSelect.appendChild(new Option('默认排序', 'default'));
+                    sortSelect.appendChild(new Option('名称排序', 'name'));
+                    sortSelect.appendChild(new Option('推荐指数', 'stars'));
+                    sortSelect.value = lastSortValue;
+                } else {
+                    sortSelect.appendChild(new Option('日期降序', 'date_desc'));
+                    sortSelect.appendChild(new Option('日期升序', 'date_asc'));
+                    sortSelect.appendChild(new Option('名称排序', 'name'));
+                    sortSelect.value = 'date_desc';
+                }
+                sortSelect.disabled = false;
+                currentPage = 1;
+                renderGames();
+            });
+        });
+
+        let searchTimer;
+        const refreshMainSearch = () => {
+            if (isFatalError) return;
+            clearSearchBtn.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => {
+                currentPage = 1;
+                renderGames();
+            }, 250);
+        };
+        searchInput.addEventListener('input', (e) => {
+            if (e.isComposing) return;
+            refreshMainSearch();
+        });
+        searchInput.addEventListener('compositionend', refreshMainSearch);
+
+        clearSearchBtn.addEventListener('click', () => {
+            clearTimeout(searchTimer);
+            searchInput.value = '';
+            clearSearchBtn.style.display = 'none';
+            currentPage = 1;
+            renderGames();
+            searchInput.focus();
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.isComposing && !isFatalError) {
+                clearTimeout(searchTimer);
+                currentPage = 1;
+                renderGames();
+                searchInput.blur();
+            }
+        });
+
+        sortSelect.addEventListener('change', () => {
+            if (isFatalError) return;
+            if (currentFilter === 'all') {
+                lastSortValue = sortSelect.value;
+            }
+            currentPage = 1;
+            renderGames();
+        });
+
+        function toggleControls(isLoadingOrError) {
+            searchInput.disabled = isLoadingOrError;
+            filterBtns.forEach(b => b.disabled = isLoadingOrError);
+            sortSelect.disabled = isLoadingOrError;
+            if (isLoadingOrError) {
+                clearSearchBtn.style.display = 'none';
+            } else {
+                clearSearchBtn.style.display = searchInput.value.length > 0 ? 'flex' : 'none';
+            }
+        }
+
+        async function fetchData() {
+            // [P0 修复] 每次刷新/获取数据前，先清空旧数据，防止断网刷新时由于旧数据存在导致看门狗误判白屏
+            allGames = [];
+            
+            loadingText.style.display = 'block';
+            list.innerHTML = '';
+            resultCount.textContent = '';
+            isFatalError = false;
+            toggleControls(true);
+            pagination.innerHTML = '';
+
+            const currentGen = ++fetchGeneration;
+            if (activeController) { try { activeController.abort(); } catch (e) {} }
+            activeController = new AbortController();
+            const outerSignal = activeController.signal;
+            const attemptControllers = [];
+
+            const watchdogTimer = setTimeout(() => {
+                if (currentGen !== fetchGeneration) return;
+                // 让超时后的迟到响应失效，不能覆盖超时错误状态
+                fetchGeneration++;
+                if (activeController) {
+                    try { activeController.abort(); } catch (e) {}
+                }
+                if (!isFatalError) {
+                    loadingText.style.display = 'none';
+                    resultCount.textContent = '';
+                    isFatalError = true;
+                    toggleControls(true);
+                    headerRight.textContent = '获取解压码';
+                    renderFatalBox();
+                }
+            }, 5000);
+
+            const attempts = dataUrls.map((baseUrl) => {
+                const url = baseUrl + '?t=' + Date.now();
+                const controller = new AbortController();
+                attemptControllers.push(controller);
+                const timeoutId = setTimeout(() => controller.abort(), 4000);
+                const onOuterAbort = () => controller.abort();
+                outerSignal.addEventListener('abort', onOuterAbort, { once: true });
+
+                return fetch(url, { signal: controller.signal, cache: 'no-store' })
+                    .then(res => {
+                        if (!res.ok) throw new Error("HTTP " + res.status);
+                        return res.json();
+                    })
+                    .then(data => {
+                        if (
+                            !data ||
+                            typeof data !== 'object' ||
+                            Array.isArray(data) ||
+                            !Array.isArray(data.games) ||
+                            !Array.isArray(data.customerService)
+                        ) {
+                            throw new Error("数据格式错误");
+                        }
+                        return data;
+                    })
+                    .finally(() => {
+                        clearTimeout(timeoutId);
+                        outerSignal.removeEventListener('abort', onOuterAbort);
+                    });
+            });
+
+            try {
+                const data = await anyPromise(attempts);
+                if (currentGen !== fetchGeneration) return;
+                
+                clearTimeout(watchdogTimer);
+                
+                if (
+                    !data ||
+                    !Array.isArray(data.games) ||
+                    !Array.isArray(data.customerService)
+                ) {
+                    throw new Error('无有效数据源');
+                }
+
+                attemptControllers.forEach(c => { try { c.abort(); } catch (e) {} });
+
+                customerServiceList = data.customerService
+                    .filter(item =>
+                        item &&
+                        typeof item.name === 'string' &&
+                        typeof item.url === 'string'
+                    );
+
+allGames = data.games
+                    .filter(g => g && typeof g === 'object' && !Array.isArray(g))
+                    .map(g => ({
+                        ...g,
+                        name: typeof g.name === 'string' ? g.name : String(g.name ?? ''),
+                        date: typeof g.date === 'string' || typeof g.date === 'number' ? String(g.date) : '',
+                        update_date: typeof g.update_date === 'string' || typeof g.update_date === 'number' ? String(g.update_date) : '',
+                        stars: g.stars ?? ''
+                    }));
+                
+                isFatalError = false; 
+                
+                loadingText.style.display = 'none';
+                toggleControls(false);
+                currentPage = 1;
+                try {
+                    renderGames();
+                } catch (e) {
+                    console.error('【渲染失败】:', e);
+                    list.innerHTML = '';
+                    const errorBox = document.createElement('div');
+                    errorBox.className = 'error-box';
+                    errorBox.textContent = '游戏列表渲染失败，请刷新页面或稍后重试。';
+                    list.appendChild(errorBox);
+                }
+            } catch (err) {
+                clearTimeout(watchdogTimer);
+                
+                if (currentGen !== fetchGeneration) return;
+                console.warn('【数据加载失败】:', err);
+                allGames = [];
+                loadingText.style.display = 'none';
+                resultCount.textContent = '';
+                isFatalError = true;
+                toggleControls(true);
+                headerRight.textContent = '获取解压码';
+                renderFatalBox();
+            }
+        }
+
+        function renderFatalBox() {
+            list.innerHTML = '';
+            pagination.innerHTML = '';
+            const li = document.createElement('li');
+            li.className = 'fatal-li';
+            const box = document.createElement('div');
+            box.className = 'empty-state-box fatal-box';
+            const msg = document.createElement('p');
+            msg.textContent = '❌ 无法连接云端服务器，获取游戏列表失败。';
+            const btn = document.createElement('a');
+            btn.className = 'btn btn-fatal';
+            btn.href = fatalUrl;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
+            btn.textContent = '👉 点击手动打开备用地址';
+            box.appendChild(msg);
+            box.appendChild(btn);
+            li.appendChild(box);
+            list.appendChild(li);
+        }
+
+        function renderEmptySearchState(keyword) {
+            list.innerHTML = '';
+            pagination.innerHTML = '';
+            const li = document.createElement('li');
+            li.className = 'fatal-li';
+            const box = document.createElement('div');
+            box.className = 'empty-state-box empty-search-box';
+            const msg = document.createElement('p');
+
+            if (keyword) {
+                msg.textContent = `没有找到与 "${keyword}" 相关的游戏`;
+            } else if (currentFilter === 'new') {
+                msg.textContent = '暂无新增游戏记录';
+            } else if (currentFilter === 'update') {
+                msg.textContent = '暂无更新记录';
+            } else {
+                msg.textContent = '此分类下暂无游戏数据';
+            }
+
+            box.appendChild(msg);
+
+            if (keyword) {
+                const btn = document.createElement('button');
+                btn.className = 'btn btn-empty-search';
+                btn.textContent = '清除搜索条件';
+                btn.onclick = () => {
+                    searchInput.value = '';
+                    clearSearchBtn.style.display = 'none';
+                    currentPage = 1;
+                    renderGames();
+                    searchInput.focus();
+                };
+                box.appendChild(btn);
+            }
+            li.appendChild(box);
+            list.appendChild(li);
+        }
+
+        function getFilteredAndSortedGames() {
+            const keyword = searchInput.value.trim().toLowerCase();
+            const sortBy = sortSelect.value;
+
+            let filteredGames = allGames.filter(g => {
+                const matchName = (g.name || '').toLowerCase().includes(keyword);
+                if (!matchName) return false;
+
+                if (currentFilter === 'new') {
+                    return isNewGame(g);
+                }
+                if (currentFilter === 'update') {
+                    return isUpdatedGame(g);
+                }
+                return true;
+            });
+
+            if (currentFilter !== 'all') {
+                const dateKey = currentFilter === 'update' ? 'update_date' : 'date';
+                if (sortBy === 'name') {
+                    filteredGames.sort((a, b) => (a.name || '').localeCompare(b.name || '', 'zh-CN'));
+                } else if (sortBy === 'date_asc') {
+                    filteredGames.sort((a, b) => (parseDate(a[dateKey]) || 0) - (parseDate(b[dateKey]) || 0));
+                } else {
+                    filteredGames.sort((a, b) => (parseDate(b[dateKey]) || 0) - (parseDate(a[dateKey]) || 0));
+                }
+            } else if (sortBy === 'name') {
+                filteredGames.sort((a, b) => (a.name || '').localeCompare(b.name || '', 'zh-CN'));
+            } else if (sortBy === 'stars') {
+                filteredGames.sort((a, b) => {
+                    const diff = getStarCount(b.stars) - getStarCount(a.stars);
+                    return diff !== 0 ? diff : (a.name || '').localeCompare(b.name || '', 'zh-CN');
+                });
+            }
+            return filteredGames;
+        }
+
+
+        function createPagination(container, currentPage, maxPage, onPageChange) {
+            container.replaceChildren();
+            if (maxPage <= 1) return;
+
+            const makeButton = (label, page, disabled = false) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = label;
+                btn.disabled = disabled;
+                if (page === currentPage) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-current', 'page');
+                }
+                if (page != null && !disabled) btn.onclick = () => onPageChange(page);
+                return btn;
+            };
+            const ellipsis = () => {
+                const span = document.createElement('span');
+                span.className = 'ellipsis';
+                span.textContent = '...';
+                return span;
+            };
+
+            container.appendChild(makeButton('上一页', currentPage - 1, currentPage === 1));
+            const addPage = page => container.appendChild(makeButton(String(page), page));
+            if (maxPage <= 7) {
+                for (let i = 1; i <= maxPage; i++) addPage(i);
+            } else if (currentPage <= 4) {
+                for (let i = 1; i <= 5; i++) addPage(i);
+                container.appendChild(ellipsis());
+                addPage(maxPage);
+            } else if (currentPage >= maxPage - 3) {
+                addPage(1);
+                container.appendChild(ellipsis());
+                for (let i = maxPage - 4; i <= maxPage; i++) addPage(i);
+            } else {
+                addPage(1);
+                container.appendChild(ellipsis());
+                for (let i = currentPage - 1; i <= currentPage + 1; i++) addPage(i);
+                container.appendChild(ellipsis());
+                addPage(maxPage);
+            }
+            container.appendChild(makeButton('下一页', currentPage + 1, currentPage === maxPage));
+        }
+
+        function renderGames() {
+            list.innerHTML = '';
+            resultCount.textContent = '';
+            pagination.innerHTML = '';
+
+            if (isFatalError) return;
+
+            const filteredGames = getFilteredAndSortedGames();
+            const totalGames = filteredGames.length;
+
+            if (totalGames === 0) {
+                renderEmptySearchState(searchInput.value.trim());
+                return;
+            }
+
+            const maxPage = Math.ceil(totalGames / PAGE_SIZE);
+            if (currentPage > maxPage) currentPage = maxPage;
+            if (currentPage < 1) currentPage = 1;
+
+            const startIndex = (currentPage - 1) * PAGE_SIZE;
+            const endIndex = startIndex + PAGE_SIZE;
+            const pageGames = filteredGames.slice(startIndex, endIndex);
+
+            resultCount.textContent = `共找到 ${totalGames} 个游戏 (第 ${currentPage} / ${maxPage} 页)`;
+
+            createPagination(pagination, currentPage, maxPage, (page) => {
+                currentPage = page;
+                renderGames();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            const fragment = document.createDocumentFragment();
+
+            pageGames.forEach(g => {
+                const li = document.createElement('li');
+
+                const cellName = document.createElement('div');
+                cellName.className = 'cell-name';
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'game-name';
+                const prefix = getGamePrefix(g);
+                nameSpan.textContent = prefix + (g.name || '未知游戏');
+                nameSpan.title = g.name || '';
+
+                cellName.appendChild(nameSpan);
+
+                // 仅在「最新更新」列表显示更新详情按钮
+                if (currentFilter === 'update') {
+                    const updateDetailBtn = document.createElement('button');
+                    updateDetailBtn.type = 'button';
+                    updateDetailBtn.className = 'btn-update-detail';
+                    updateDetailBtn.textContent = '更新详情';
+
+                    updateDetailBtn.onclick = (e) => {
+                        e.stopPropagation();
+
+                        const overlay = document.getElementById('updateDetailModal');
+                        const title = document.getElementById('updateDetailTitle');
+                        const content = document.getElementById('updateDetailContent');
+                        const closeBtn = document.getElementById('btnCloseUpdateDetail');
+
+                        title.textContent = '📋 ' + (g.name || '游戏') + ' - 更新详情';
+                        content.textContent = g.update_content || '暂无更新';
+
+                        safeShowModal(overlay);
+
+                        closeBtn.onclick = () => safeHideModal(overlay);
+                        overlay.onclick = (event) => {
+                            if (event.target === overlay) {
+                                safeHideModal(overlay);
+                            }
+                        };
+                    };
+
+                    cellName.appendChild(updateDetailBtn);
+                }
+
+                li.appendChild(cellName);
+
+                // 日期和游戏大小放入共同容器，方便手机端并排显示
+                const cellMetaRow = document.createElement('div');
+                cellMetaRow.className = 'cell-meta-row';
+
+                // 仅在「最近新增」和「最新更新」列表显示日期
+                if (currentFilter === 'new' || currentFilter === 'update') {
+                    const cellDate = document.createElement('div');
+                    cellDate.className = 'cell-date';
+                    const showDate = currentFilter === 'update'
+                        ? (g.update_date || '')
+                        : (g.date || '历史归档');
+                    cellDate.textContent = showDate;
+                    cellMetaRow.appendChild(cellDate);
+                }
+
+                const cellSize = document.createElement('div');
+                cellSize.className = 'cell-size';
+                cellSize.textContent = g.size || '-';
+                cellMetaRow.appendChild(cellSize);
+
+                li.appendChild(cellMetaRow);
+
+                const cellStars = document.createElement('div');
+                cellStars.className = 'cell-stars';
+                cellStars.textContent = g.stars || '';
+                cellStars.title = String(g.stars || '');
+                li.appendChild(cellStars);
+
+                const cellPreview = document.createElement('div');
+                cellPreview.className = 'cell-preview';
+                const previewBtn = document.createElement('button');
+                previewBtn.className = 'btn btn-preview';
+                previewBtn.textContent = '🔍 预览';
+                previewBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    if (g.preview && String(g.preview).trim() !== "") safeOpen(g.preview);
+                    else showToast("该游戏暂无预览链接！");
+                };
+                cellPreview.appendChild(previewBtn);
+                li.appendChild(cellPreview);
+
+                const cellDownload = document.createElement('div');
+                cellDownload.className = 'cell-download';
+
+                if (g.url_cloud && String(g.url_cloud).trim() !== "") {
+                    const cloudBtn = document.createElement('button');
+                    cloudBtn.className = 'btn btn-cloud';
+                    cloudBtn.textContent = '☁️ 移动云盘';
+                    cloudBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        if (g.code_cloud && String(g.code_cloud).trim() !== "") {
+                            const ok = forceSyncCopy(g.code_cloud);
+                            const opened = ok ? safeOpen(g.url_cloud) : false;
+                            showCopyModal(g.code_cloud, ok, opened, g.url_cloud);
+                        } else {
+                            safeOpen(g.url_cloud);
+                        }
+                    };
+                    cellDownload.appendChild(cloudBtn);
+                }
+
+                if (g.url_baidu && String(g.url_baidu).trim() !== "") {
+                    const baiduBtn = document.createElement('button');
+                    baiduBtn.className = 'btn btn-baidu';
+                    baiduBtn.textContent = '☁️ 百度网盘';
+                    baiduBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        if (g.code_baidu && String(g.code_baidu).trim() !== "") {
+                            const ok = forceSyncCopy(g.code_baidu);
+                            const opened = ok ? safeOpen(g.url_baidu) : false;
+                            showCopyModal(g.code_baidu, ok, opened, g.url_baidu);
+                        } else {
+                            safeOpen(g.url_baidu);
+                        }
+                    };
+                    cellDownload.appendChild(baiduBtn);
+                }
+                li.appendChild(cellDownload);
+
+                const cellRight = document.createElement('div');
+                cellRight.className = 'cell-right';
+
+                if (g.url_unzip && String(g.url_unzip).trim() !== "") {
+                    const unzipBtn = document.createElement('button');
+                    unzipBtn.className = 'btn btn-unzip';
+                    unzipBtn.textContent = '🔑 获取解压码';
+                    unzipBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        safeOpen(g.url_unzip);
+                    };
+                    cellRight.appendChild(unzipBtn);
+                }
+
+                li.appendChild(cellRight);
+
+                fragment.appendChild(li);
+            });
+
+            list.appendChild(fragment);
+        }
+
+        // ================= 密码本功能逻辑 =================
+        const notepadModal = document.getElementById('notepadModal');
+        const notepadList = document.getElementById('notepadList');
+        const notepadName = document.getElementById('notepadName');
+        const notepadPwd = document.getElementById('notepadPwd');
+        const notepadPagination = document.getElementById('notepadPagination');
+        
+        const notepadSearchInput = document.getElementById('notepadSearchInput');
+        const clearNotepadSearchBtn = document.getElementById('clearNotepadSearchBtn');
+
+        const clearNotepadName = document.getElementById('clearNotepadName');
+        const clearNotepadPwd = document.getElementById('clearNotepadPwd');
+
+        notepadName.addEventListener('input', (e) => {
+            if (e.isComposing) return;
+            clearNotepadName.style.display = notepadName.value.length > 0 ? 'flex' : 'none';
+        });
+        notepadPwd.addEventListener('input', (e) => {
+            if (e.isComposing) return;
+            clearNotepadPwd.style.display = notepadPwd.value.length > 0 ? 'flex' : 'none';
+        });
+        
+        let notepadSearchTimer;
+        const refreshNotepadSearch = () => {
+            clearNotepadSearchBtn.style.display = notepadSearchInput.value.length > 0 ? 'flex' : 'none';
+            clearTimeout(notepadSearchTimer);
+            notepadSearchTimer = setTimeout(() => {
+                notepadCurrentPage = 1;
+                renderNotepad();
+            }, 250);
+        };
+        notepadSearchInput.addEventListener('input', (e) => {
+            if (e.isComposing) return;
+            refreshNotepadSearch();
+        });
+        notepadSearchInput.addEventListener('compositionend', refreshNotepadSearch);
+
+        clearNotepadName.addEventListener('click', () => {
+            notepadName.value = '';
+            clearNotepadName.style.display = 'none';
+            notepadName.focus();
+        });
+        clearNotepadPwd.addEventListener('click', () => {
+            notepadPwd.value = '';
+            clearNotepadPwd.style.display = 'none';
+            notepadPwd.focus();
+        });
+        clearNotepadSearchBtn.addEventListener('click', () => {
+            clearTimeout(notepadSearchTimer);
+            notepadSearchInput.value = '';
+            clearNotepadSearchBtn.style.display = 'none';
+            notepadCurrentPage = 1;
+            renderNotepad();
+            notepadSearchInput.focus();
+        });
+
+        notepadSearchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.isComposing) {
+                e.preventDefault();
+                clearTimeout(notepadSearchTimer);
+                notepadCurrentPage = 1;
+                renderNotepad();
+                notepadSearchInput.blur();
+            }
+        });
+
+        const editModal = document.getElementById('editModal');
+        const editName = document.getElementById('editName');
+        const editPwd = document.getElementById('editPwd');
+        let editingId = null;
+
+        let notepadCurrentPage = 1;
+        const NOTEPAD_PAGE_SIZE = 10;
+
+        let notepadStorageCorrupt = false;
+        let notepadStorageUnavailable = false;
+        let notepadStorageReadErrorShown = false;
+
+        function getNotepadData() {
+            let rawText;
+            try {
+                rawText = localStorage.getItem('xiaohua_notepad');
+            } catch (e) {
+                notepadStorageUnavailable = true;
+                if (!notepadStorageReadErrorShown) {
+                    showToast('⚠️ 无法读取本地密码本，请检查浏览器存储权限；为保护数据，暂时禁止写入');
+                    notepadStorageReadErrorShown = true;
+                }
+                return [];
+            }
+            notepadStorageUnavailable = false;
+            notepadStorageReadErrorShown = false;
+            if (rawText == null || rawText === '') {
+                notepadStorageCorrupt = false;
+                return [];
+            }
+
+            let raw;
+            try {
+                raw = JSON.parse(rawText);
+                if (!Array.isArray(raw)) throw new Error('密码本数据不是数组');
+            } catch (e) {
+                // 保留原始内容，禁止后续写入覆盖，避免静默数据丢失
+                notepadStorageCorrupt = true;
+                showToast('⚠️ 密码本数据损坏，已暂停写入以保护原数据；请先备份并修复');
+                return [];
+            }
+
+            // 数组中出现非对象记录时视为数据结构异常：不自动清理、不覆盖原始数据
+            if (raw.some(d => !d || typeof d !== 'object' || Array.isArray(d))) {
+                notepadStorageCorrupt = true;
+                showToast('⚠️ 密码本包含异常记录，已暂停写入以保护原数据；请先导出/备份后检查');
+                return [];
+            }
+
+            notepadStorageCorrupt = false;
+            let changed = false;
+            const data = raw.map(d => {
+                // 保留用户自定义字段（例如 note、remark），只规范化本程序使用的字段
+                const item = {
+                    ...d,
+                    id: d.id != null && String(d.id) !== '' ? String(d.id) : genId(),
+                    // 保留空名称/空密码记录，避免读取时静默删除用户数据
+                    name: d.name == null ? '' : String(d.name),
+                    pwd: d.pwd == null ? '' : String(d.pwd)
+                };
+                if (d.id == null || String(d.id) === '' || typeof d.name !== 'string' || typeof d.pwd !== 'string') changed = true;
+                return item;
+            });
+            if (changed) {
+                try { localStorage.setItem('xiaohua_notepad', JSON.stringify(data)); }
+                catch (e) { showToast('⚠️ 密码本格式整理失败，暂时无法保存'); }
+            }
+            return data;
+        }
+
+        function saveNotepadData(data) {
+            if (notepadStorageCorrupt) {
+                showToast('⚠️ 密码本数据损坏，已阻止写入以防覆盖原数据');
+                return false;
+            }
+            if (notepadStorageUnavailable) {
+                showToast('⚠️ 当前无法读取密码本，已阻止写入以防覆盖原数据；请检查浏览器存储权限后重试');
+                return false;
+            }
+            try {
+                localStorage.setItem('xiaohua_notepad', JSON.stringify(data));
+            } catch (e) {
+                showToast('⚠️ 保存失败，浏览器存储空间可能已满或权限不足');
+                return false;
+            }
+            renderNotepad();
+            return true;
+        }
+
+        function renderNotepad() {
+            let data = getNotepadData();
+            notepadList.innerHTML = '';
+            notepadPagination.innerHTML = '';
+
+            const keyword = notepadSearchInput.value.trim().toLowerCase();
+            if (keyword) {
+                data = data.filter(d => 
+                    (d.name && String(d.name).toLowerCase().includes(keyword)) || 
+                    (d.pwd && String(d.pwd).toLowerCase().includes(keyword))
+                );
+            }
+
+            if (data.length === 0) {
+                notepadCurrentPage = 1;
+                notepadList.innerHTML = `<div style="text-align: center; color: #999; padding: 20px;">${keyword ? '没有找到匹配的记录' : '暂无记录，请在上方添加'}</div>`;
+                return;
+            }
+
+            const reversedData = data.slice().reverse();
+            const totalGames = reversedData.length;
+            const maxPage = Math.ceil(totalGames / NOTEPAD_PAGE_SIZE);
+
+            if (notepadCurrentPage > maxPage) notepadCurrentPage = maxPage;
+            if (notepadCurrentPage < 1) notepadCurrentPage = 1;
+
+            const startIndex = (notepadCurrentPage - 1) * NOTEPAD_PAGE_SIZE;
+            const endIndex = startIndex + NOTEPAD_PAGE_SIZE;
+            const pageData = reversedData.slice(startIndex, endIndex);
+
+            pageData.forEach((item) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'notepad-item';
+
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'notepad-col-name';
+                const nameSpan = document.createElement('div');
+                nameSpan.className = 'scroll-text';
+                nameSpan.title = item.name || '（未命名）';
+                nameSpan.textContent = item.name || '（未命名）';
+                nameDiv.appendChild(nameSpan);
+                itemDiv.appendChild(nameDiv);
+
+                const pwdDiv = document.createElement('div');
+                pwdDiv.className = 'notepad-col-pwd';
+                const pwdSpan = document.createElement('div');
+                pwdSpan.className = 'scroll-text';
+                pwdSpan.title = item.pwd;
+                const pwdInner = document.createElement('span');
+                pwdInner.style.background = '#ffebee';
+                pwdInner.style.padding = '2px 6px';
+                pwdInner.style.borderRadius = '4px';
+                pwdInner.textContent = item.pwd;
+                pwdSpan.appendChild(pwdInner);
+                pwdDiv.appendChild(pwdSpan);
+                itemDiv.appendChild(pwdDiv);
+
+                const actionsDiv = document.createElement('div');
+                actionsDiv.className = 'notepad-actions';
+
+                const btnCopy = document.createElement('button');
+                btnCopy.type = 'button';
+                btnCopy.className = 'btn-small btn-copy-small';
+                btnCopy.textContent = '复制';
+                btnCopy.onclick = () => copyToClipboard(item.pwd, ok => showToast(ok ? '✅ 复制成功！' : '⚠️ 复制失败'));
+
+                const btnEdit = document.createElement('button');
+                btnEdit.type = 'button';
+                btnEdit.className = 'btn-small btn-edit-small';
+                btnEdit.textContent = '修改';
+                btnEdit.onclick = () => window.openEditModal(item.id);
+
+                const btnDel = document.createElement('button');
+                btnDel.type = 'button';
+                btnDel.className = 'btn-small btn-del-small';
+                btnDel.textContent = '删除';
+                btnDel.onclick = () => window.showDeleteModal(item.id, item.name);
+
+                actionsDiv.appendChild(btnCopy);
+                actionsDiv.appendChild(btnEdit);
+                actionsDiv.appendChild(btnDel);
+                itemDiv.appendChild(actionsDiv);
+
+                notepadList.appendChild(itemDiv);
+            });
+
+            const checkOverflow = () => {
+                notepadList.querySelectorAll('.notepad-col-name, .notepad-col-pwd').forEach(container => {
+                    const textEl = container.querySelector('.scroll-text');
+                    if (textEl) {
+                        if (textEl.scrollWidth > container.clientWidth) {
+                            container.classList.add('is-overflow');
+                        } else {
+                            container.classList.remove('is-overflow');
+                        }
+                    }
+                });
+            };
+            requestAnimationFrame(checkOverflow);
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(checkOverflow);
+            }
+
+            createPagination(notepadPagination, notepadCurrentPage, maxPage, (page) => {
+                notepadCurrentPage = page;
+                renderNotepad();
+            });
+        }
+
+        document.getElementById('btnNotepad').addEventListener('click', () => {
+            safeShowModal(notepadModal);
+            notepadCurrentPage = 1;
+            notepadSearchInput.value = '';
+            clearNotepadSearchBtn.style.display = 'none';
+            renderNotepad();
+        });
+
+        const closeNotepad = () => {
+            safeHideModal(notepadModal);
+            notepadName.value = '';
+            notepadPwd.value = '';
+            clearNotepadName.style.display = 'none';
+            clearNotepadPwd.style.display = 'none';
+            notepadCurrentPage = 1;
+            notepadSearchInput.value = '';
+            clearNotepadSearchBtn.style.display = 'none';
+        };
+        document.getElementById('notepadCloseBtn').onclick = closeNotepad;
+        notepadModal.onclick = (e) => {
+            if (e.target === notepadModal) closeNotepad();
+        };
+
+        document.getElementById('btnSaveNotepad').addEventListener('click', () => {
+            const name = notepadName.value.trim();
+            const pwd = notepadPwd.value.trim();
+
+            if (!name || !pwd) {
+                showToast("⚠️ 请填写游戏名和密码");
+                return;
+            }
+
+            const data = getNotepadData();
+            const duplicate = data.find(d => String(d.name).trim().toLowerCase() === name.toLowerCase());
+            if (duplicate) {
+                showToast('⚠️ 密码本中已有同名游戏，请编辑原记录或使用不同名称');
+                return;
+            }
+            data.push({ id: genId(), name, pwd });
+            if (!saveNotepadData(data)) return;
+            notepadName.value = '';
+            notepadPwd.value = '';
+            clearNotepadName.style.display = 'none';
+            clearNotepadPwd.style.display = 'none';
+            showToast('✅ 已保存');
+            notepadName.focus();
+        });
+
+        [notepadName, notepadPwd].forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.isComposing && !e.repeat) {
+                    e.preventDefault();
+                    document.getElementById('btnSaveNotepad').click();
+                }
+            });
+        });
+
+        window.openEditModal = function(id) {
+            const data = getNotepadData();
+            const item = data.find(d => d.id === id);
+            if (item) {
+                editingId = id;
+                editName.value = item.name;
+                editPwd.value = item.pwd;
+                safeShowModal(editModal);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => editPwd.focus({ preventScroll: true }));
+                });
+            }
+        };
+
+        const closeEditModal = () => {
+            safeHideModal(editModal);
+            editingId = null;
+        };
+        document.getElementById('btnCancelEdit').onclick = closeEditModal;
+        editModal.onclick = (e) => {
+            if (e.target === editModal) closeEditModal();
+        };
+
+        document.getElementById('btnSaveEdit').addEventListener('click', () => {
+            const newName = editName.value.trim();
+            const newPwd = editPwd.value.trim();
+
+            if (!newName || !newPwd) {
+                showToast("⚠️ 游戏名和密码不能为空");
+                return;
+            }
+
+            const data = getNotepadData();
+            const index = data.findIndex(d => d.id === editingId);
+
+            if (index !== -1) {
+                data[index].name = newName;
+                data[index].pwd = newPwd;
+                const duplicate = data.find((d, i) => i !== index && String(d.name).trim().toLowerCase() === newName.toLowerCase());
+                if (duplicate) {
+                    showToast('⚠️ 已存在同名游戏，请修改为其他名称');
+                    return;
+                }
+                if (saveNotepadData(data)) {
+                    showToast('✅ 修改成功');
+                    closeEditModal();
+                }
+            } else {
+                showToast('⚠️ 该记录已不存在，可能已被删除');
+                closeEditModal();
+            }
+        });
+
+        [editName, editPwd].forEach(el => {
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.isComposing && !e.repeat) {
+                    e.preventDefault();
+                    document.getElementById('btnSaveEdit').click();
+                }
+            });
+        });
+
+        // ================= 自定义删除确认逻辑 =================
+        let deleteTargetId = null;
+
+        window.showDeleteModal = function(id, name) {
+            deleteTargetId = id;
+            const msgEl = document.getElementById('deleteMsg');
+            msgEl.replaceChildren();
+
+            const strong = document.createElement('strong');
+            strong.style.color = '#f44336';
+            strong.textContent = `"${name || '未命名'}"`;
+
+            msgEl.appendChild(document.createTextNode('确定删除 '));
+            msgEl.appendChild(strong);
+            msgEl.appendChild(document.createTextNode(' 的密码吗？'));
+
+            const overlay = document.getElementById('deleteModal');
+            safeShowModal(overlay);
+        };
+
+        function closeDeleteModal() {
+            const overlay = document.getElementById('deleteModal');
+            safeHideModal(overlay);
+            deleteTargetId = null;
+        }
+
+        document.getElementById('btnCancelDel').onclick = closeDeleteModal;
+
+        document.getElementById('btnConfirmDel').onclick = () => {
+            if (deleteTargetId) {
+                const d = getNotepadData();
+                const newData = d.filter(item => item.id !== deleteTargetId);
+                if (saveNotepadData(newData)) showToast('✅ 已删除');
+            }
+            closeDeleteModal();
+        };
+
+        document.getElementById('deleteModal').onclick = (e) => {
+            if (e.target.id === 'deleteModal') closeDeleteModal();
+        };
+
+        // ESC 键：每次只关闭最上层弹窗，不会一次关闭多层
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+
+            const topModal = modalHistoryStack[modalHistoryStack.length - 1];
+            if (!topModal) return;
+
+            e.preventDefault();
+
+            if (topModal.id === 'notepadModal') {
+                closeNotepad();
+            } else if (topModal.id === 'editModal') {
+                closeEditModal();
+            } else if (topModal.id === 'deleteModal') {
+                closeDeleteModal();
+            } else {
+                safeHideModal(topModal);
+            }
+        });
+
+        // 导入/导出功能
+        document.getElementById('btnExportNotepad').addEventListener('click', () => {
+            const data = getNotepadData();
+            if (notepadStorageCorrupt) {
+                showToast('⚠️ 密码本数据损坏，无法安全导出整理后的数据；请勿继续写入原密码本');
+                return;
+            }
+            if (notepadStorageUnavailable) {
+                showToast('⚠️ 当前无法读取密码本，暂时无法导出；请检查浏览器存储权限');
+                return;
+            }
+            if (data.length === 0) {
+                showToast("⚠️ 密码本为空");
+                return;
+            }
+            const blob = new Blob([JSON.stringify(data, null, 4)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+
+            const now = new Date();
+            const dateStr = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
+            const timeStr = `${String(now.getHours()).padStart(2,'0')}-${String(now.getMinutes()).padStart(2,'0')}`;
+            a.download = `小花密码本_${dateStr}_${timeStr}.json`;
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            // 等浏览器开始处理下载后再释放 Blob URL，兼容部分浏览器
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            showToast('✅ 已导出，请选择“文档”文件夹保存');
+        });
+
+        document.getElementById('btnImportNotepad').addEventListener('click', () => {
+            // 先检查现有密码本，避免损坏数据被当作空列表合并后覆盖
+            getNotepadData();
+            if (notepadStorageCorrupt) {
+                showToast('⚠️ 当前密码本数据损坏，已暂停导入；请先备份并修复原数据');
+                return;
+            }
+            if (notepadStorageUnavailable) {
+                showToast('⚠️ 当前无法读取密码本，已暂停导入；请检查浏览器存储权限');
+                return;
+            }
+            document.getElementById('fileInput').click();
+        });
+
+        document.getElementById('fileInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            if (file.size > 5 * 1024 * 1024) {
+                showToast("⚠️ 文件过大，请选择小于 5MB 的文件");
+                e.target.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const importedData = JSON.parse(ev.target.result);
+                    if (Array.isArray(importedData)) {
+                        const currentData = getNotepadData();
+                        if (notepadStorageCorrupt || notepadStorageUnavailable) {
+                            showToast(notepadStorageCorrupt
+                                ? '⚠️ 当前密码本数据损坏，已取消导入以保护原数据'
+                                : '⚠️ 当前无法读取密码本，已取消导入以保护原数据');
+                            return;
+                        }
+                        let addedCount = 0;
+                        let updatedCount = 0;
+
+                        importedData.forEach(newItem => {
+                            if (newItem && typeof newItem === 'object' &&
+                                newItem.name != null && String(newItem.name).trim() &&
+                                newItem.pwd != null && String(newItem.pwd).trim()) {
+
+                                const safeNewName = String(newItem.name).trim();
+                                const safeNewPwd = String(newItem.pwd).trim();
+                                const searchName = safeNewName.toLowerCase();
+                                const idx = currentData.findIndex(d => String(d.name).trim().toLowerCase() === searchName);
+
+                                if (idx !== -1) {
+                                    if (String(currentData[idx].pwd).trim() !== safeNewPwd) {
+                                        currentData[idx].pwd = safeNewPwd;
+                                        updatedCount++;
+                                    }
+                                } else {
+                                    let finalId = newItem.id;
+                                    if (finalId != null && String(finalId) !== '' &&
+                                        currentData.some(d => String(d.id) === String(finalId))) {
+                                        finalId = genId();
+                                    } else if (finalId == null || String(finalId) === '') {
+                                        finalId = genId();
+                                    }
+
+                                    currentData.push({
+                                        ...newItem,
+                                        id: String(finalId),
+                                        name: safeNewName,
+                                        pwd: safeNewPwd
+                                    });
+                                    addedCount++;
+                                }
+                            }
+                        });
+                        if (saveNotepadData(currentData)) {
+                            if (addedCount > 0 || updatedCount > 0) {
+                                showToast(`✅ 导入完成：新增 ${addedCount} 条，更新 ${updatedCount} 条`);
+                            } else {
+                                showToast('⚠️ 没有新的数据需要导入');
+                            }
+                        }
+                    } else {
+                        showToast("⚠️ 文件格式错误");
+                    }
+                } catch (err) {
+                    showToast("⚠️ 解析失败，文件损坏");
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        });
+
+        fetchData();
+    </script>
+</body>
+</html>
