@@ -2,11 +2,9 @@ name: Purge jsDelivr Cache (Best Effort)
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - 'xiaohuagames.json'
-      - 'version.json'
   workflow_dispatch:
 
 permissions:
@@ -23,44 +21,33 @@ jobs:
         run: |
           set -uo pipefail
 
-          purge_file() {
-            local FILE="$1"
-            local URL="https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/${FILE}"
-            local BODY_FILE
-            local CODE
+          URL="https://purge.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json"
+          BODY_FILE=$(mktemp)
+          trap 'rm -f "$BODY_FILE"' EXIT
 
-            BODY_FILE=$(mktemp)
-            echo "=================================================="
-            echo "请求刷新：${URL}"
+          echo "请求刷新：$URL"
 
-            CODE=$(curl -sS \
-              --max-time 30 \
-              --retry 2 \
-              --retry-delay 3 \
-              -o "$BODY_FILE" \
-              -w "%{http_code}" \
-              "$URL") || {
-                echo "::warning::${FILE} Purge 请求发生网络错误，跳过本文件刷新。"
-                cat "$BODY_FILE" || true
-                rm -f "$BODY_FILE"
-                return 0
-              }
+          CODE=$(curl -sS \
+            --max-time 30 \
+            --retry 2 \
+            --retry-delay 3 \
+            -o "$BODY_FILE" \
+            -w "%{http_code}" \
+            "$URL") || {
+              echo "::warning::Purge 请求发生网络错误，跳过刷新。"
+              echo "::notice::@main 将按照 jsDelivr 分支缓存策略更新。"
+              exit 0
+            }
 
-            echo "HTTP 状态码：${CODE}"
-            echo "响应内容："
-            cat "$BODY_FILE"
+          echo "HTTP 状态码：$CODE"
+          echo "响应内容："
+          cat "$BODY_FILE"
 
-            if [ "$CODE" != "200" ]; then
-              echo "::warning::${FILE} Purge 请求失败（HTTP ${CODE}）。"
-            else
-              echo "Purge 服务已接受 ${FILE} 的刷新请求。"
-              echo "::notice::HTTP 200 仅表示请求获得成功响应，不代表所有 CDN 节点已立即更新。"
-            fi
+          if [ "$CODE" != "200" ]; then
+            echo "::warning::Purge 请求失败（HTTP $CODE）。"
+            echo "::notice::CDN 将按照分支缓存策略更新。"
+            exit 0
+          fi
 
-            rm -f "$BODY_FILE"
-          }
-
-          purge_file "xiaohuagames.json"
-          purge_file "version.json"
-
-          echo "::notice::本工作流为尽力而为的缓存刷新；@main 分支地址不保证可被 Purge 强制回源。"
+          echo "Purge 请求已返回 HTTP 200。"
+          echo "::notice::注意：@main 不保证立即刷新，不能据此确认 CDN 已返回最新内容。"
