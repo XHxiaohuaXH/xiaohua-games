@@ -1,6 +1,6 @@
 {
   "version": "1.0.1",
-  "download_url": "https://github.com/XHxiaohuaXH/xiaohua-games/releases/latest/download/小花游戏.html",
+  "download_url": "https://github.com/XHxiaohuaXH/xiaohua-games/releases/latest/download/xiaohua-games.html",
   "update_time": "2026-11-04",
-  "update_log": "修复更新问题"
+  "update_log": "修复更新弹窗按钮布局和下载问题"
 }
