@@ -10,6 +10,36 @@
         }
     ],
     "games": [
+            {
+        "name": "测试",
+        "size": "3个版本", 
+        "preview": "预览",
+        "url_unzip": "解压码",
+        "update_content": "本次更新内容：\n",
+        "description": "游戏介绍",
+        "price": 100,
+        "stars": "★★★★★★",
+        "versions": [
+            {
+                "name": "10G版本",
+                "url_cloud": "https://www.baidu.com/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.baidu.com/"
+            },
+            {
+                "name": "20G版本",
+                "url_cloud": "https://www.baidu.com/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.baidu.com/"
+            },
+            {
+                "name": "30G版本",
+                "url_cloud": "https://www.baidu.com/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.baidu.com/"
+            }
+        ]
+    },
         {
         "name": "永久会员（今后新增游戏全免费）",
         "size": "目前275款", 
