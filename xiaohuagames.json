@@ -10,6 +10,41 @@
         }
     ],
     "games": [
+            {
+        "name": "测试测试测试测试测试测试测试测试测试测试测试测试测试",
+        "size": "游戏大小", 
+        "preview": "预览",
+        "url_unzip": "解压码",
+        "date": "新增",
+        "update_date": "更新",
+        "update_content": "本次更新内容：\n",
+        "description": "游戏介绍",
+        "price": 100,
+        "stars": "★★★★★★",
+        "versions": [
+            {
+                "name": "测试测试测试测试测试测试测试测试测试测试测试测试",
+                "size": "游戏大小", 
+                "url_cloud": "https://www.json.cn/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.json.cn/"
+            },
+            {
+                "name": "测试测试测试测试测试测试测试测试测试测试测试测试",
+                "size": "游戏大小", 
+                "url_cloud": "https://www.json.cn/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.json.cn/"
+            },
+            {
+                "name": "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
+                "size": "游戏大小", 
+                "url_cloud": "https://www.json.cn/",
+                "code_cloud": "提取码",
+                "url_baidu": "https://www.json.cn/"
+            }
+        ]
+    },
         {
         "name": "永久会员（今后新增游戏全免费）",
         "size": "目前275款", 
