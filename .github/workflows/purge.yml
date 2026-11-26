@@ -53,7 +53,8 @@ jobs:
           echo "Purge 请求已返回 HTTP 200。"
           echo "::notice::注意：@main 不保证立即刷新，不能据此确认 CDN 已返回最新内容。"
 
-      - name: 验证三个数据源的实际数据
+      
+      - name: 验证三个数据源的缓存情况
         shell: bash
         run: |
           set -uo pipefail
@@ -67,48 +68,60 @@ jobs:
             echo ""
             echo "========================================"
             echo "数据源：$name"
-            echo "地址：$url"
 
-            if ! curl -fsSL \
-              --max-time 20 \
-              --retry 1 \
-              -H "Cache-Control: no-cache" \
-              -H "Pragma: no-cache" \
-              "${url}?verify=$(date +%s%N)" \
-              -o "$file"; then
-              echo "::warning::$name 请求失败"
-              rm -f "$file"
-              return 0
-            fi
+            for mode in normal random; do
+              echo ""
+              echo "---------- $mode 请求 ----------"
 
-            python3 - "$file" "$name" <<'PY'
+              local request_url="$url"
+
+              if [ "$mode" = "random" ]; then
+                request_url="${url}?verify=$(date +%s%N)"
+              fi
+
+              if ! curl -fsSL \
+                --max-time 20 \
+                --retry 1 \
+                "$request_url" \
+                -o "$file"; then
+                echo "::warning::$name 的 $mode 请求失败"
+                continue
+              fi
+
+              python3 - "$file" "$name" "$mode" <<'PY'
           import json
           import sys
+          import hashlib
 
-          path, name = sys.argv[1], sys.argv[2]
+          path, name, mode = sys.argv[1:4]
 
           try:
-              with open(path, "r", encoding="utf-8") as f:
-                  data = json.load(f)
+              with open(path, "rb") as f:
+                  raw = f.read()
 
+              data = json.loads(raw.decode("utf-8-sig"))
               games = data.get("games", [])
 
-              if not isinstance(games, list):
-                  raise ValueError("games 不是数组")
-
-              print("检查结果：成功")
-              print("数据更新时间：", data.get("update_time", "未提供"))
+              print("数据源：", name)
+              print("请求方式：", mode)
               print("游戏总数量：", len(games))
+              print("文件 SHA256：", hashlib.sha256(raw).hexdigest())
 
-              print("最近排列的前5个游戏：")
-              for game in games[:5]:
-                  if isinstance(game, dict):
-                      print(" -", game.get("name", "未命名"))
+              found = False
+              for game in games:
+                  if isinstance(game, dict) and game.get("name") == "AI少女":
+                      found = True
+                      print("AI少女完整数据：")
+                      print(json.dumps(game, ensure_ascii=False, indent=2))
+                      break
+
+              if not found:
+                  print("没有找到 AI少女")
 
           except Exception as e:
-              print("检查结果：数据解析失败")
-              print("错误：", e)
+              print("解析失败：", e)
           PY
+            done
 
             rm -f "$file"
           }
@@ -127,4 +140,5 @@ jobs:
 
           echo ""
           echo "========================================"
-          echo "三个数据源验证完成。"
+          echo "六组请求验证完成。"
+
