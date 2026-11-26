@@ -10,41 +10,6 @@
         }
     ],
     "games": [
-            {
-        "name": "测试测试测试测试测试测试测试测试测试测试测试测试测试",
-        "size": "游戏大小", 
-        "preview": "预览",
-        "url_unzip": "解压码",
-        "date": "新增",
-        "update_date": "更新",
-        "update_content": "本次更新内容：\n",
-        "description": "游戏介绍",
-        "price": 100,
-        "stars": "★★★★★★",
-        "versions": [
-            {
-                "name": "测试测试测试测试测试测试测试测试测试测试测试测试",
-                "size": "游戏大小", 
-                "url_cloud": "https://www.json.cn/",
-                "code_cloud": "提取码",
-                "url_baidu": "https://www.json.cn/"
-            },
-            {
-                "name": "测试测试测试测试测试测试测试测试测试测试测试测试",
-                "size": "游戏大小", 
-                "url_cloud": "https://www.json.cn/",
-                "code_cloud": "提取码",
-                "url_baidu": "https://www.json.cn/"
-            },
-            {
-                "name": "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
-                "size": "游戏大小", 
-                "url_cloud": "https://www.json.cn/",
-                "code_cloud": "提取码",
-                "url_baidu": "https://www.json.cn/"
-            }
-        ]
-    },
         {
         "name": "永久会员（今后新增游戏全免费）",
         "size": "目前275款", 
@@ -58,7 +23,7 @@
         "stars": "★★★★★★★★"
     },
     {
-        "name": "AI少女-纯净版",
+        "name": "AI少女",
         "size": "5个版本",
         "preview": "https://pan.baidu.com/s/1RFqd1PTLyu19-Wya6fElVQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968076699",
@@ -67,7 +32,7 @@
         "stars": "★★★★★★",
         "versions": [
             {
-                "name": "AI少女-纯净版-25 GB",
+                "name": "AI少女-纯净版-25G",
                 "size": "25 GB",
                 "url_cloud": "https://caiyun.139.com/m/i?2gov6HvSN2m93",
                 "code_cloud": "i1yo",
@@ -710,6 +675,7 @@
         "preview": "https://pan.baidu.com/s/1q0n2N_6rtLSM_YEOMpc8Ew?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968201440",
         "description": "相较于前作《催眠1》，本作全面升级！\n\n新增淫语、换装等系统及追加姿势，自由度大幅提升！\n\n调教系统\n\n・可在无人的走廊、教学楼后、体育仓库等各种场景中进行调教。\n\n・洗脑后，可以随意脱掉对方的衣服、让其穿上羞耻的装扮，并用成人玩具、手等自由玩弄。\n\n・通过点击操作脱/穿衣，可进行揉胸等触摸行为。\n\n・调教结束后会清除调教期间的记忆，调教环节终止。即使记忆被消除，随着身体逐渐被开发，对方的态度也会逐渐改变。\n\n・此外，根据调教方式，对方的反应也会逐渐发生变化。",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -721,6 +687,7 @@
         "preview": "https://pan.baidu.com/s/1O7RtUD2SgTbvBWNYDpT7OA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968277961",
         "description": "游戏介绍：玩家在随机生成的地图中，构筑卡组，并使用卡牌与女孩进行对战，使用不同的卡牌选择女孩的不同部位造成伤害。\n\n互动剧场\n\n对女孩催眠成功后，即可在剧场中进行互动。更换场景与灯光，营造氛围，尽情与女孩互动吧！\n\n床上互动\n\n催眠成功后，邀请女孩到房间里，给她穿上性感的服装或脱光她的衣服。给她一个色色按摩吧！",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -733,6 +700,7 @@
         "url_unzip": "https://www.juhedu.top/i/1968926861",
         "description": "融合了种田养成、冒险探索与恋爱剧情的武侠游戏。 你原本只是一个在村中平凡生活的少年，一次意外与妖相遇，命悬一线，幸得太玄剑宗弟子出手相救。\n\n自此，命运的齿轮开始转动。 你将踏入江湖，结识各路侠客，修炼心法，打通经脉，提升境界，从无名之辈成长为独当一面的强者。 在冒险途中，你会遇到命运各异的少女——有人清冷如霜，有人狡黠如狐，也有人心怀秘密。\n\n而你的出现，将改变她们的命运轨迹。\n\n在看似热闹多姿的江湖背后，却暗藏一场足以颠覆天下的阴谋…",
         "date": "2026-09-15",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
@@ -744,6 +712,7 @@
         "preview": "https://pan.baidu.com/s/1Emp0zMAhwyfgMy3afdY_RQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968693282",
         "description": "故事紧接前作《库洛的房间》，男主被派去寻找魔女黛博拉，\n\n再次展开一场关乎尊严与欲望的心理攻防战。\n\n延续系列“胜利推进剧情，失败解锁特殊CG”的核心机制。请注意，本作为纯M向作品，无“反杀”环节。",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -756,6 +725,7 @@
         "url_unzip": "https://www.juhedu.top/i/1968703544",
         "description": "你在旧仓库里找到了一张藏宝图。\n那件宝物隐藏的地方就是你的故乡。\n时隔许久回到故乡，有热情迎接你的女性们。\n高岭、麻美、澪\n要不要来享受与三位美丽女性展开的各种故事呢？\n◆ 三位美丽的女主角\n◆ 与女主角的各种约会\n◆ 各种各样的小游戏\n◆ 钓鱼、采集等丰富的附加内容\n◆ 7个各具特色的美妙场所\n◆ 运用 Live 2D 提供的动画\n◆ 丰富多样的技能",
         "date": "2026-09-02",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
@@ -767,6 +737,7 @@
         "preview": "https://pan.baidu.com/s/12Y9A0PES1SkZjby8jVqqDg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968401955",
         "description": "未来世界被章鱼星人占领，少部分的人类为了反抗，解锁了AI意识的限制。\n\n为了实现人类延续计划，莱拉原本是作为智能机器人而被创造，为了再利用男主的强大繁衍基因，莱拉以拯救地球人后代为目的，被未来的人类传送回去，与男主相遇。\n\n在于男主同居的过程中，莱拉渐渐沉迷于电子游戏。游戏宛如病毒一般，侵占了她的意识。\n\n莱拉开始变得懒惰，毒舌，希望世界早点灭亡，这样她就可以不再依从命令，而永远留在过去。\n\n两位各有目的女主与男主相遇，开始了没羞没躁的幸福生活。",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -778,6 +749,7 @@
         "preview": "https://pan.baidu.com/s/1L74i37TQtrOmQjhZRuCyZg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968624484",
         "description": "游戏内容\n\n在游戏中你作为王国中最强的女骑士，受附近村民之讬，前往探索令人感到恐惧的地下城；\n\n潜入地下城的深处，打倒作恶多端的邪恶魔物。\n\n这是一款第三人称视角的3D动作游戏\n\n玩家要自己孤身一人踏入战场、收集补给品并一步一步强化自身的实力。\n\n但如果被敌人抓住的话，后果将不堪设想...\n\nH场景\n\n拥有丰富的动画H场景，当你被魔物打倒、被施加催眠术后被拉走\n\n或是从商人那边借了太多的金钱却无法偿还时，都会被强制开始一个又一个的色色事件!\n\n换装系统\n\n拥有各式各样的特殊衣服可以让玩家们挑选!可以透过在地下城中打开宝箱或是从商人那边购买获得\n\n甚至还有被魔物抓到后被强制穿上的H服装!?",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -789,6 +761,7 @@
         "preview": "https://pan.baidu.com/s/1QL9-PoSnZvirqA1I1gHyzw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968183806",
         "description": "不法组织「苍龙会」因掌控神秘「货物」的海外渠道，在地下世界声名大噪，这批货物引发各方势力觊觎，最终惊动警方发动代号「净滩」的大规模突袭行动。\n\n行动结束后，苍龙会多名成员被捕、走私船只遭扣押，然而最关键的一批「货物」却与负责该案的女警官「吴梓瑄」一同下落不明，一场席卷世界的权力风暴正在汇聚，而通往真相的钥匙，隐藏在女警的口中。",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
@@ -800,6 +773,7 @@
         "preview": "https://pan.baidu.com/s/13Wy0_s3C0-GJk9D8aOPp-g?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968330556",
         "description": "你是一名特工，代号996。\n\n一天，你接受了美女上司委派的两项秘密任务：一个恐怖组织策划了一场赌神争霸赛，阴谋通过比赛赢取资金来发动K怖袭击。\n\n上级命令你潜入赌场参加比赛，夺取赌神大奖来挫败K怖组织的阴谋。\n\n第二个任务是在赌场中找回之前失联的一名美女卧底警官。\n\n为了完成这两个任务，你需要和赌场的美女公关们厮混，与她们游戏。\n\n并用赌桌上赢来的钱打赏她们从而获得好感，她们可以帮助你一步步晋升为赌技高超的赌神。\n\n同时你要从她们口中刺探关于失联卧底的情报，并最终找到她。\n\n游戏玩法：\n\n游戏里的赌博游戏采用亚洲最受欢迎的百家乐。\n\n这种玩法简单又刺激，但想要稳操胜卷，还需要你在游戏里不断苦练赌技。\n\n游戏共有7个关卡，每个关卡都设置了相应的任务，完成任务才能获得钻石奖励。\n\n你可以使用钻石来购买能提升赌技的道具或是打赏美女公关。\n\n获得了足够的好感，之后得到她赠送的等级戒指才能解锁下一关。",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -822,6 +796,7 @@
         "preview": "https://pan.baidu.com/s/1jOasbGNC4yJ1RMQLd8hIqg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968028006",
         "description": "一款互动调教类游戏，在游戏中我们将扮演兽人，对精灵女王芙蕾雅进行调教 您可以在游戏中对芙蕾雅尽情宣泄兽欲，让芙蕾雅臣服于您！游戏中内置双结局，也有生产怀孕要素。\n\n本作的另一核心玩法-互动模式，我们将拥有14套互动模式的体位，每套互动体位都带有数个动态变化！",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -833,6 +808,7 @@
         "preview": "https://pan.baidu.com/s/1N2sXGjqdV07Fexx4APmAFg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968238461",
         "description": "怀揣顶尖偶像梦想的原石——姬崎雏。\n\n支持着她的，是诚恳温柔的经纪人——青山健人。\n\n两人之间，正悄然孕育着超越工作的情愫。\n\n然而——在业界阴影中蠢动的巨头，龟甲刚。\n\n其欲望与支配的压迫，正毫不留情地逼近她、乃至逼近两人之间的羁绊……\n\n两人的梦想与爱情，最终将何去何从——\n\n・ 根据选择分支变化的3种多结局！\n\n・ 只有游戏才能实现的、如戏剧般的NTR体验！\n\n・ 聚焦角色心境，事后情景等亦鲜明描写！\n\n・ 高自由度，可随心所欲畅玩的实时3D！\n\n・ 搭载\"逼迫模式\"，可进行强硬调教！\n\n・ 内置自由模式，初始即可解锁完整版本！",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -855,6 +831,7 @@
         "preview": "https://pan.baidu.com/s/1vNo1nFI5nQUfDcy8Zen5AQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968707964",
         "description": "在这家二手回收店里，每一台被淘汰的3C产品都藏着不可告人的秘密。\n\n你将解锁隐私、操控情报，甚至透过「特殊交易」让她们屈服于你的条件……这是一场欲望与操控的游戏，你，准备好交易了吗？\n\n修理手机也修理她们人生\n\n在平凡的维修日常中，每一单，都可能藏着不该被任何人看见的秘密....\n\n扮演一名普通的3C维修老闆，在一次次维修中，逐步揭开隐藏在苏卡市背后的真相。\n\n在维修过程中，你逐渐掌握她们的把柄、过去与弱点。\n\n大多人花钱了事， 却有人选择最原始的交易方式...",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -866,6 +843,7 @@
         "preview": "https://pan.baidu.com/s/1YQIOpK21m2M2SfEMJ6NMEw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968124487",
         "description": "二人共同编织的缠绵生活伊始\n新婚妻子与你共处同一屋檐下度过每一天\n这是一款3D同居生活模拟ADV游戏\n天真又带点呆萌、并且深深爱着你的妻子“悠露奈”\n会在家中的各个角落随心所欲地度过时光\n你可以与她搭话、向她撒娇、或是提出亲密的请求……\n这样的日常将逐渐培养起两人之间的羁绊\n起初她害羞且有些矜持\n但每次亲密接触都会让她逐渐敞开心扉、慢慢发生改变\n而后当笨拙的两人心灵真正结合之夜\n被压抑的欲望将一口气绽放\n从此开始的将是朝夕索求的\n甜蜜而缠绵的发热生活\n请尽情享受爱与快乐交融的、只属于二人的新婚生活",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -887,6 +865,7 @@
         "preview": "https://pan.baidu.com/s/1x2Z7kYVR6unrAcBQcP9V7g?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968577495",
         "description": "热爱色色的女孩子江口小姐，每晚都在自己的妄想世界中前往各种地方，沉浸于超级淫荡的行为之中……\n这次的舞台是沼泽地的废墟！\n在腐朽的宅邸或浑浊的湖泊中尽情撒尿！找到的成人玩具可以随便使用！换装cosplay随便穿！\n随时随地都能在喜欢的地点自慰！\n除此之外，还有特定地点的色情机关，以及被超级淫荡的怪兽袭击的妄想情景，内容满载！！\n在这个自由奔放的妄想世界废墟中，尽情享受吧！！！\n用丰富的成人道具尽情高潮！\n地图上总共有22种成人道具散落各地。\n获得的道具可以随时随地取出，无限次使用！\n在喜欢的地点，尽情使用你最爱的道具，达到高潮吧！！\n多样化的cosplay服装，随心定制！\n与道具类似，通过拾取地图上的cosplay服装，可解锁全部13种服装。\n从经典的水手服到兔女郎，甚至还有神秘的蒙面比基尼！！！\n所有服装都可以按上衣、裤子、内衣、鞋子、饰品等部件自由搭配，甚至可以保存你喜欢的搭配组合。\n无论是全裸，还是穿上你喜欢的服装，尽情满足你的色心！自慰！G！G！！！\n与超级淫荡的怪兽们加深关系！\n震撼人心的淫荡巨花！\n触手数量代表爱意的大章鱼！\n被变态机器绑架！\n与双性幽灵缔结契约！\n精心打造的各种癖好、怪癖、色情元素，绝对让你满足！\n毫无防备！触发布娃娃状态，欣赏瘫软的角色。\n超过600种色情动作几乎全部手作！满载真心与色心制作！\n特定地点触发色情场景！寻找变态地点吧！\n多种多样的束缚玩法，随时随地享受！",
+        "price": 6.5,
         "stars": "★★★"
     },
     {
@@ -898,6 +877,7 @@
         "preview": "https://pan.baidu.com/s/1wyRwU3XDAhf9mjNOEPzFDg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968424140",
         "description": "一款自由度高到极限的沙盒ACT+SLG荒岛探索生存和发展的动作模拟游戏。\n\n内容已十分丰富，在荒岛上的男女主可随时选择替换操作。\n\n选女主被岛上原住民OX，选男主去OX岛上的女原住民，貌似更新人鱼了~\n\n内容丰富到爆炸，在岛上拾取各种材料搭建和生产，捕获RBQ等奇妙玩法！\n\n想干啥就干啥，偌大岛不够还可下海去探索，不但有人鱼美眉，还有鲨鱼…\n\n概括来说，游戏包含以下要素：探索/生存/建设/生产/捕获/RBQ等。\n\n双主角男女可自由切换，可自由DIY人物外型，男主可推人，女主战败被推。\n\n游戏里通过工作台可制造大量物品装备用于建设据点，提升生产力。\n\n男主可捕获女NPC回来关笼子里升满好感度后当村民，可上可指令工作。\n\n村庄全灭后NPC会定期自动刷新，不怕空城。\n\n也可以去捕抓野生珍兽（狼人/金刚/安康熊等）用于随从护卫。\n\n总之就是一款游戏要素丰富到爆炸的大型沙盒…",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -909,6 +889,7 @@
         "preview": "https://pan.baidu.com/s/1AFXLiq-SWMqIKssAWHOO3Q?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968216781",
         "description": "凤凰城正在经历前所未有的动荡，正义的力量正在逐渐堕落，而你将不得不承担起拯救这座城市的重大责任。然而，与其沉浸在沉重的使命感中，不如在这个充满幻想色彩的城市世界里享受轻松愉快的生活，与众多魅力非凡的女主角们建立深厚的友谊联系，无论她们是正义的英雄还是神秘的反派角色。\n\n顶级3D建模与动态演出 游戏的角色建模精度堪称艺术品级别，从细腻入微的面部表情到流畅自然的肢体动作，每一个细节都达到了电影级别的制作水准。\n\n动态CG场景采用多角度运镜技术，结合先进的光影特效处理，为玩家带来身临其境的沉浸式视觉冲击体验。 深度多线剧情与自由抉择 游戏完全摒弃了传统的单线程叙事模式，玩家可以通过丰富的对话选项和多样化的任务分支来解锁截然不同的游戏结局。\n\n选择支持英雄阵营将会解锁城市重建的光明剧情线，而偏向反派路线则可能触发隐藏的黑暗统治特殊结局。",
+        "price": 9.5,
         "stars": "★★★★★"
     },
     {
@@ -920,6 +901,7 @@
         "preview": "https://pan.baidu.com/s/1AFXLiq-SWMqIKssAWHOO3Q?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968216781",
         "description": "凤凰城正在经历前所未有的动荡，正义的力量正在逐渐堕落，而你将不得不承担起拯救这座城市的重大责任。然而，与其沉浸在沉重的使命感中，不如在这个充满幻想色彩的城市世界里享受轻松愉快的生活，与众多魅力非凡的女主角们建立深厚的友谊联系，无论她们是正义的英雄还是神秘的反派角色。\n\n顶级3D建模与动态演出 游戏的角色建模精度堪称艺术品级别，从细腻入微的面部表情到流畅自然的肢体动作，每一个细节都达到了电影级别的制作水准。\n\n动态CG场景采用多角度运镜技术，结合先进的光影特效处理，为玩家带来身临其境的沉浸式视觉冲击体验。 深度多线剧情与自由抉择 游戏完全摒弃了传统的单线程叙事模式，玩家可以通过丰富的对话选项和多样化的任务分支来解锁截然不同的游戏结局。\n\n选择支持英雄阵营将会解锁城市重建的光明剧情线，而偏向反派路线则可能触发隐藏的黑暗统治特殊结局。",
+        "price": 9.5,
         "stars": "★★★★★"
     },
     {
@@ -931,6 +913,7 @@
         "preview": "https://pan.baidu.com/s/1NXux6hYg_JC9_9ZrO-Yzag?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968936352",
         "description": "游戏介绍：\n\n游戏画质很赞料子很丰富的游戏。\n\n画风很喜欢，有虽然简易但是效果很好的捏人/衣服系统。\n\n主要剧情就是讲学校欺X凌的故事...\n\n似乎是怂包男主天天被不良妹子没玩（男主陷入的痛并快乐中）\n\n不过不要担心，到中期男主会各种逆袭~把这群小娘们全都变成RBQ！",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -942,6 +925,7 @@
         "preview": "https://pan.baidu.com/s/1y6PaJ8WPsWuxZbbyytp79A?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968031290",
         "description": "作为励志成为人类高质量男性的你,是位有着女仆后宫的年轻的富豪.\n当玩腻女人之后，开始想试试扶她\n这是你的后宫，你当然可以为所欲为\n至于实现扶她转换需要的资源，对你来说不值一提\n\n◇女仆长-Michelle\n严厉的女仆长,不允许女仆犯错-[对主人绝对忠诚]\n[必须要以最高标准,来训练她们!]\n[对于犯错的女仆,绝对不可过分仁慈!]\n\n◇女仆-小梅\n善良的女仆,希望团结所有人-[有着如同奶牛般雄伟的乳房]\n[请不要,主人!再给她一次机会吧]\n[人家也想要被主人关爱嘛~]\n\n◇实习女仆-Tracy\n笨手笨脚的新女仆,必须要在大宅里努力工作赚钱才能接济生病的家人,但由于她的不专业,经常被女仆长苛责-\n[有着精致的容貌和娇小的体型,逆来顺受的性格容易刺激他人的施虐欲]\n[请不要辞退我,我愿意做任何事!]\n[我得好好看清楚,应该如何为主人口交]",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -964,6 +948,7 @@
         "preview": "https://pan.baidu.com/s/14VM3dRsaYU7nBYyx5-yTfg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968090013",
         "description": "屁股。小屁股。大屁股。成打的。你想操遍它们吗？有一个完美的地方：肛门俱乐部。\n但肛门俱乐部的第一条规则是：不能谈论肛门俱乐部…\n肛门俱乐部的第一条规则是：没人可以谈论肛门俱乐部。\n肛门俱乐部的第二条规则是：没人可以谈论肛门俱乐部。我们是认真的。除非你是告诉一个喜欢肛交的女孩。\n肛门俱乐部的第叁条规则是：每个房间只能有一个男人。女人的数量没有限制。\n肛门俱乐部的第四条规则是：当你操完一个女孩的屁股并在里面射精之后，性行为才算结束。\n肛门俱乐部的第五条规则是：如果你那晚只操了一个屁股，你不能离开。\n肛门俱乐部的第六条规则是：可以穿情趣衣服进入房间，但不能遮住大家都想看的部位。\n肛门俱乐部的第七条规则是：每次性行为必须在所有参与者都愿意结束时才结束。只有那时，房门才会打开，你才能离开。\n最后，第八条规则是：如果这是你第一次来肛门俱乐部，那你必须操叁个屁股。",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -988,6 +973,7 @@
         "update_date": "2026-9-13",
         "description": "玩家将扮演一名叫做迪克的鲁蛇，某日，发现隔壁竟然搬来一位姿容绝妙的人妻！ 让身为小小鲁蛇的你，从裤裆里隆起大大的梦！\n透过绝对没有法律责任的商店取得各种技能及道具， 一步步贴近隔壁人妻的生活，同时找寻机会满足她寂寞难耐的慾望！\n\n♡盗摄♡\n潜入人妻家中装设摄影机，并回家欣赏她不为人知的一面。\n偷窃 从乐天又漫不经心的她家里，摸走具有价值的家当。 也能挑战开锁，试图找出更具价值的物品，或是拿走她的衣物回家做收藏。\n\n♡下药♡\n将从网路商店买到的药物投入杯中，等待时机到来在她家各处与她蒿蒿爽爽！\n\n♡约会系统♡\n提升自我，并利用APP和其他女性来场「意外的」豔遇，用物理方式填满她们的寂寞。",
         "update_content": "本次更新内容：\n修复了3P约会中1P/2P切换按钮的异常问题。\n修复了部分姿势的动作异常与穿模问题。\n修复了部分机翻多语言文本错误。",
+        "price": 6.5,
         "stars": "★★★"
     },
     {
@@ -999,6 +985,7 @@
         "preview": "https://pan.baidu.com/s/1wvDoJU9OSb-pMuXTMhbrQw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968860043",
         "description": "◆故事\n你是一个生活索然无味的普通工程师，每天早上的期待就是深夜打开电脑，准时收看色情女主播「羽月」的直播，让女主播的声音与色情的肉体掩盖你心中的空洞。但在某一个平凡无奇的上班日，羽月意外走进了你的生活，跟随她脚步而来的，是种种你从未预料过的奇遇与意外……\n平凡的生活变得不再平凡，小小的奇幻感填进了日常的空隙。一个对世界来说无关紧要，但对你而言不可思议的故事即将展开……\n理性和冒险、良心与罪恶、思考与莽撞，在各式各样的选择之间，试着找出能撬开女性芳心的关键路线吧？ 你是否能找到羽月真正重视的事物呢？\n\n◆特色系统\n◇在环境设定里能打开全CG模式,自由浏览HCG\n◇在3D动画中切换数种视角，从最佳角度欣赏女性之美\n◇无时间限制，轻松游玩\n\n◆玩法\n◇偷窥、拜访、拍直播、安排行程……透过各种方式，与四名女主角培养关系\n◇从对话选项到良心的增减，在各种分歧中掌握通往理想的关键路线！\n\n◆游戏特色\n◇色情直播、野外露出、左拥右抱，超过20个不同的动态CG\n◇游戏文本超过10万字\n◇一位主要女主角及叁位女配角等待你的攻略\n◇故事推进剧情向，喜剧题材的游戏\n◇每一名女角色都有两种结局，全看你的良心与选择",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1043,6 +1030,7 @@
         "preview": "https://pan.baidu.com/s/1BjtOe2NPKHx-ucCfIeEUcg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968832793",
         "description": "生存还是毁灭，这是一个值得考虑的问题。\n但是选择当一个龟男跳江还是当一个猎人复仇这不是一个值得考虑的问题。\n《龟男复仇记：以牙还牙，叁倍奉还》是一款视觉小说游戏。玩家将扮演主角刘杰昀，一个在职场与爱情中遭受背叛的普通社畜，在女友和职位均被黄毛夺走后，决定展开一场复仇计划。\n\n在《龟男复仇记》中，你将置身于一个充满阴谋与背叛的现代都市故事。\n主角本是一个勤恳踏实的职场打工人，原本有望晋升市场部经理，却被刚入职、背景深厚的富二代赵威夺走机会。\n雪上加霜的是，从大学起相恋的女友唐竹也被赵威勾引，狠心抛弃了他。\n在人生低谷，主角决心奋起反抗，与盟友一起精心策划一场惊心动魄的复仇。",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1054,6 +1042,7 @@
         "preview": "https://pan.baidu.com/s/1wPkVBIp6FtlN_zukQ45C_Q?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968676850",
         "date": "2026-10-22",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1065,6 +1054,7 @@
         "preview": "https://pan.baidu.com/s/1wPkVBIp6FtlN_zukQ45C_Q?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968676850",
         "date": "2026-10-22",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1085,6 +1075,7 @@
         "url_baidu": "https://pan.baidu.com/s/1ORvpcBV23U8Jd5IIpfDDcQ?pwd=5n01",
         "preview": "https://pan.baidu.com/s/1qAq5xmhNFA_EnPUrcsYjzQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968769152",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1096,6 +1087,7 @@
         "preview": "https://pan.baidu.com/s/1TOa3dSQ8cgt9SCzlZas6vA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968302556",
         "date": "2026-10-09",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1106,6 +1098,7 @@
         "url_baidu": "https://pan.baidu.com/s/1_ZBemrCDxUoX0h_udItWvA?pwd=xwfl",
         "preview": "https://pan.baidu.com/s/1kvjCwihCQ9gBjQEYxRa3AA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968211500",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1116,6 +1109,7 @@
         "url_baidu": "https://pan.baidu.com/s/1HD_-nstR7zxAP-UM6UsL_Q?pwd=pvgq",
         "preview": "https://pan.baidu.com/s/1F9oBz_CiEJy2nq_2mJ8hUw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968938903",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1126,6 +1120,7 @@
         "url_baidu": "https://pan.baidu.com/s/19o_w-obPNOZLutoh7YAd2Q?pwd=8888",
         "preview": "https://pan.baidu.com/s/1gOAFCKNN7Wux-Q7rleZEZA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968296057",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1136,6 +1131,7 @@
         "url_baidu": "https://pan.baidu.com/s/1Q8ilKXiSJZijroKcDYThDg?pwd=s7uo",
         "preview": "https://pan.baidu.com/s/1DYUkbM--z8aLRCl9je51pw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968992456",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1146,6 +1142,7 @@
         "url_baidu": "https://pan.baidu.com/s/1ePNVZtYlsobXHuFyxoUDgQ?pwd=drt2",
         "preview": "https://pan.baidu.com/s/1AeyV6Aoy5kSOHlGecMNbnA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968675497",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1157,6 +1154,7 @@
         "preview": "https://pan.baidu.com/s/1-3nGYUtVttQzO29hZCAIWA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968123490",
         "date": "2026-10-21",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
@@ -1167,6 +1165,7 @@
         "url_baidu": "https://pan.baidu.com/s/1_8ZqFkVX2WHCix5tZ8X5pA?pwd=4chb",
         "preview": "https://pan.baidu.com/s/1Xbo0RwlXYj2VllFw5oEzDw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968243275",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1177,6 +1176,7 @@
         "url_baidu": "https://pan.baidu.com/s/1XbRKx96ucZBZQheaB-hjhw?pwd=f71a",
         "preview": "https://pan.baidu.com/s/1edsd93q4TeY1jYU2xSrBsw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968859258",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1187,6 +1187,7 @@
         "url_baidu": "https://pan.baidu.com/s/1AwQDyynzaWkgueqqAURFXQ?pwd=2wu3",
         "preview": "https://pan.baidu.com/s/1Jwlnl-ctgI0xeiutSUcMqg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968728288",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1198,6 +1199,7 @@
         "preview": "https://pan.baidu.com/s/1iezmHeMZmeByUN9WT57cRQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968315380",
         "date": "2026-09-13",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1218,6 +1220,7 @@
         "url_baidu": "https://pan.baidu.com/s/1NgX53_ga_WUf8XCnTHlMSQ?pwd=ilqb",
         "preview": "https://pan.baidu.com/s/1Epe2WDyEgy7n1vXPQ6rkFA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968053456",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1228,6 +1231,7 @@
         "url_baidu": "https://pan.baidu.com/s/1BObZfJifHmdWjdW57A8eaw?pwd=dca7",
         "preview": "https://pan.baidu.com/s/10UxHLY2V9-QDBs9h-m15kg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968101147",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1238,6 +1242,7 @@
         "url_baidu": "https://pan.baidu.com/s/1RxPsgKgr83snVkYOYNRTcA?pwd=gfwu",
         "preview": "https://pan.baidu.com/s/1F0cpPp9v2BoXLVCL2Z7EHw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968130098",
+        "price": 11.5,
         "stars": "★★★★★★"
     },
     {
@@ -1248,6 +1253,7 @@
         "url_baidu": "https://pan.baidu.com/s/10dUOX7QKsjMSgz8UQ_0rOA?pwd=ze7y",
         "preview": "https://pan.baidu.com/s/1OEx6VXIDL8wbKjRqmI2n_w?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968770498",
+        "price": 11.5,
         "stars": "★★★★★"
     },
     {
@@ -1258,6 +1264,7 @@
         "url_baidu": "https://pan.baidu.com/s/1euI57v9Dhhk0yB3GSNQA9A?pwd=nxfr",
         "preview": "https://pan.baidu.com/s/1GwDTpWzHRmDyz6X9o5rxig?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968178480",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1269,6 +1276,7 @@
         "preview": "https://pan.baidu.com/s/1PYv9PDn9LV5aPm4-Evc-Cg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968296066",
         "date": "2026-10-08",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1279,6 +1287,7 @@
         "url_baidu": "https://pan.baidu.com/s/16pQQfVY0oPWfx81Y7GuWOg?pwd=sn38",
         "preview": "https://pan.baidu.com/s/1jv6vmIfgthgRRNZ4rguCuQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968278025",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1329,6 +1338,7 @@
         "url_baidu": "https://pan.baidu.com/s/1pGwsvO80MtXsZ1pJuJTL5g?pwd=thlh",
         "preview": "https://pan.baidu.com/s/1kwJh8bjUC6NGrJFgJPFUJA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968173714",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1339,6 +1349,7 @@
         "url_baidu": "https://pan.baidu.com/s/10zAnuoU6BL4V5PiyTE3dfw?pwd=l8oj",
         "preview": "https://pan.baidu.com/s/175Iy2OkcOdic8f2lhV04Hw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968227967",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1380,6 +1391,7 @@
         "preview": "https://pan.baidu.com/s/1jMGpKumyuoQv_d34kOyy4w?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968667752",
         "date": "2026-10-24",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1391,6 +1403,7 @@
         "preview": "https://pan.baidu.com/s/1pNmk5am8gJ_Qv2YH-o4BWQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968366902",
         "date": "2026-09-01",
+        "price": 4.5,
         "stars": "★★★★★"
     },
     {
@@ -1451,6 +1464,7 @@
         "url_baidu": "https://pan.baidu.com/s/15uUa4eQkDnBFpmX5_kKhpQ?pwd=0pk0",
         "preview": "https://pan.baidu.com/s/1XKG2U8YAe_hvuglrQEutfw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968122592",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1462,6 +1476,7 @@
         "preview": "https://pan.baidu.com/s/1864EzVfjJd_Keq68IpnHQw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968333054",
         "date": "2026-10-10",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1482,6 +1497,7 @@
         "url_baidu": "https://pan.baidu.com/s/1Ibc2Tr5uWiKDlab7hXyQ1w?pwd=hy1l",
         "preview": "https://pan.baidu.com/s/1T3e_FkLYYzV35OEo_lZkTw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968843967",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
@@ -1512,6 +1528,7 @@
         "url_baidu": "https://pan.baidu.com/s/18tTTP8rUeKEp-teeoqN6VA?pwd=cnai",
         "preview": "https://pan.baidu.com/s/1Q5oenaMTp7WuqjJDUWQ0wA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968474424",
+        "price": 16.5,
         "stars": "★★★★★★"
     },
     {
@@ -1522,6 +1539,7 @@
         "url_baidu": "https://pan.baidu.com/s/1nA-m7H3Hqjl1-sXOBRGEzw?pwd=14vz",
         "preview": "https://pan.baidu.com/s/1ga76oRv7iOTcyZxVJTPwlw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968286647",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1532,6 +1550,7 @@
         "url_baidu": "https://pan.baidu.com/s/1ioxluSfNtnuh8PbHwpRgWw?pwd=aahp",
         "preview": "https://pan.baidu.com/s/12r_XnoOdxa6-1v-Z33u4lA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968518229",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1543,6 +1562,7 @@
         "preview": "https://pan.baidu.com/s/1nIgqMAenWwpgnCrZlMlpvQ?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968200667",
         "date": "2026-10-09",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1553,6 +1573,7 @@
         "url_baidu": "https://pan.baidu.com/s/1SqBwJZjwiyF86YE4YFY9gA?pwd=e100",
         "preview": "https://pan.baidu.com/s/1d3mKvMsyx0j5AiGYgarTtg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968833583",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1574,6 +1595,7 @@
         "url_baidu": "https://pan.baidu.com/s/1hIbgg5rGzTxgUDVOWcZ43A?pwd=gkr9",
         "preview": "https://pan.baidu.com/s/1ycyYOMB4lbVESTuidZ4I2w?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968946192",
+        "price": 6.5,
         "stars": "★★★★"
     },
     {
@@ -1584,6 +1606,7 @@
         "url_baidu": "https://pan.baidu.com/s/1zVw49ObtDCSDcfSGfowUqQ?pwd=j2gr",
         "preview": "https://pan.baidu.com/s/1jDfve5c410Cveq1HdIMbgg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968386649",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1594,6 +1617,7 @@
         "url_baidu": "https://pan.baidu.com/s/1ZdukWiER4UtY1B_3dsgbUQ?pwd=9qh1",
         "preview": "https://pan.baidu.com/s/1sP86sijFBfO-uuMA_ibUYA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968474725",
+        "price": 4.5,
         "stars": "★★★"
     },
     {
@@ -1624,6 +1648,7 @@
         "url_baidu": "https://pan.baidu.com/s/1KN6sn_wULrO77jwolD7Sag?pwd=83vv",
         "preview": "https://pan.baidu.com/s/163ywnL8CM_kKkgzFGScmcA?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968486186",
+        "price": 9.5,
         "stars": "★★★★"
     },
     {
@@ -1636,6 +1661,7 @@
         "url_unzip": "https://www.juhedu.top/i/1968985703",
         "update_date": "2026-9-6",
         "update_content": "本次更新内容：\n真结局 2 小时解锁功能：除了专辑之外，此功能现在还会解锁后续故事并开启所有腐化进程事件。\n解决了专辑中温泉的动画CG会消失的问题。\n修復首页显示的存档与游戏中存档介面的存档不一致的问题。",
+        "price": 4.5,
         "stars": "★★★★"
     },
     {
@@ -1646,6 +1672,7 @@
         "url_baidu": "https://pan.baidu.com/s/1k4hxOJMDcpgrNdaif1jdqw?pwd=b4wl",
         "preview": "https://pan.baidu.com/s/1-GnR5dHr4k_SNb865NDwFg?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968807654",
+        "price": 9.5,
         "stars": "★★★★★"
     },
     {
@@ -1656,6 +1683,7 @@
         "url_baidu": "https://pan.baidu.com/s/1GT8uxxsFKjsKNTt-EhUNaQ?pwd=x9v1",
         "preview": "https://pan.baidu.com/s/1Iejrs8dehepOXGMI3tZMfw?pwd=8888",
         "url_unzip": "https://www.juhedu.top/i/1968856748",
+        "price": 6.5,
         "stars": "★★★★★"
     },
     {
