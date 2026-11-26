@@ -1,3 +1,4 @@
+
 name: Purge jsDelivr Cache (Best Effort)
 
 on:
@@ -51,3 +52,79 @@ jobs:
 
           echo "Purge 请求已返回 HTTP 200。"
           echo "::notice::注意：@main 不保证立即刷新，不能据此确认 CDN 已返回最新内容。"
+
+      - name: 验证三个数据源的实际数据
+        shell: bash
+        run: |
+          set -uo pipefail
+
+          check_source() {
+            local name="$1"
+            local url="$2"
+            local file
+            file=$(mktemp)
+
+            echo ""
+            echo "========================================"
+            echo "数据源：$name"
+            echo "地址：$url"
+
+            if ! curl -fsSL \
+              --max-time 20 \
+              --retry 1 \
+              -H "Cache-Control: no-cache" \
+              -H "Pragma: no-cache" \
+              "${url}?verify=$(date +%s%N)" \
+              -o "$file"; then
+              echo "::warning::$name 请求失败"
+              rm -f "$file"
+              return 0
+            fi
+
+            python3 - "$file" "$name" <<'PY'
+          import json
+          import sys
+
+          path, name = sys.argv[1], sys.argv[2]
+
+          try:
+              with open(path, "r", encoding="utf-8") as f:
+                  data = json.load(f)
+
+              games = data.get("games", [])
+
+              if not isinstance(games, list):
+                  raise ValueError("games 不是数组")
+
+              print("检查结果：成功")
+              print("数据更新时间：", data.get("update_time", "未提供"))
+              print("游戏总数量：", len(games))
+
+              print("最近排列的前5个游戏：")
+              for game in games[:5]:
+                  if isinstance(game, dict):
+                      print(" -", game.get("name", "未命名"))
+
+          except Exception as e:
+              print("检查结果：数据解析失败")
+              print("错误：", e)
+          PY
+
+            rm -f "$file"
+          }
+
+          check_source \
+            "jsDelivr" \
+            "https://cdn.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json"
+
+          check_source \
+            "Gcore" \
+            "https://gcore.jsdelivr.net/gh/XHxiaohuaXH/xiaohua-games@main/xiaohuagames.json"
+
+          check_source \
+            "GitHub Raw" \
+            "https://raw.githubusercontent.com/XHxiaohuaXH/xiaohua-games/main/xiaohuagames.json"
+
+          echo ""
+          echo "========================================"
+          echo "三个数据源验证完成。"
